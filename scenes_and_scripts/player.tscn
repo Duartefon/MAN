@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba523cl80rb3e"]
+
+[ext_resource type="Script" uid="uid://rpo3buihwrvl" path="res://scenes_and_scripts/player.gd" id="1_jyx7e"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_jyx7e")
+
+[node name="GunHolder" type="Node" parent="."]
