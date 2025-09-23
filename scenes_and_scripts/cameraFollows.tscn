@@ -38,9 +38,10 @@ shape = SubResource("WorldBoundaryShape3D_v5ucs")
 mesh = SubResource("PlaneMesh_801x2")
 
 [node name="Player" type="Node3D" parent="."]
+transform = Transform3D(0.036626328, 0, -0.9993291, 0, 1, 0, 0.9993291, 0, 0.036626328, 0, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.2623923, 0)
+transform = Transform3D(-0.49995348, 0, 0.0068240273, 0, 0.5, 0, -0.0068240273, 0, -0.49995348, 0, 1.2623923, 0)
 script = ExtResource("1_b1fvj")
 
 [node name="Node3D" type="Node3D" parent="Player/CharacterBody3D"]
@@ -54,11 +55,11 @@ shape = SubResource("CapsuleShape3D_v5ucs")
 debug_color = Color(0, 0.5647059, 0.8666667, 1)
 
 [node name="verDirecaodoPlayer" type="CSGBox3D" parent="Player/CharacterBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.4130571, -0.60905695)
+transform = Transform3D(0.037731715, 0, -1.999644, 0, 2, 0, 1.999644, 0, 0.037731715, -0.5300366, 0.4130571, -0.25172108)
 size = Vector3(0.07, 0.155, 0.595)
 material = SubResource("StandardMaterial3D_b1fvj")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.98896945, 0.069293834, -0.13091195, -6.464277e-05, 0.8836208, 0.4682032, 0.14812012, 0.46304712, -0.8738694, 0, 1.8812686, -1.3293518)
+transform = Transform3D(0.071997315, 0.8418128, -0.5349464, -0.019938752, 0.5374458, 0.8430626, 0.99720556, -0.05003207, 0.055479355, -1.3316715, 3.204712, -0.019325085)
 script = ExtResource("2_e50i7")
 player = NodePath("../Player/CharacterBody3D")
