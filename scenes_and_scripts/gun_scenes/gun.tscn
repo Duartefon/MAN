@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckv17j7mpqiqd"]
+
+[ext_resource type="Script" uid="uid://06cw7c7jcqmo" path="res://scenes_and_scripts/gun_scenes/gun.gd" id="1_aixdi"]
+[ext_resource type="PackedScene" uid="uid://b2lc8dhamxfri" path="res://assets/guns/glock.blend" id="2_vnqf6"]
+
+[node name="GunHolder" type="Node3D"]
+script = ExtResource("1_aixdi")
+
+[node name="glock" parent="." instance=ExtResource("2_vnqf6")]
+
+[node name="RayCast3D" type="RayCast3D" parent="glock"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.20580721, 1.6222237)

@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba523cl80rb3e"]
+[gd_scene load_steps=6 format=3 uid="uid://dl1dtjqvty7st"]
 
-[ext_resource type="Script" uid="uid://rpo3buihwrvl" path="res://scenes_and_scripts/player.gd" id="1_jyx7e"]
+[ext_resource type="Script" uid="uid://dxrjygnec1dxs" path="res://scenes_and_scripts/player_movement.gd" id="1_rhssg"]
+[ext_resource type="PackedScene" uid="uid://ckv17j7mpqiqd" path="res://scenes_and_scripts/gun_scenes/gun.tscn" id="2_r313e"]
 
-[node name="Player" type="Node3D"]
-script = ExtResource("1_jyx7e")
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ifvoy"]
 
-[node name="GunHolder" type="Node" parent="."]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5ucs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1fvj"]
+albedo_color = Color(0.87058824, 0, 0.039215688, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_rhssg")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("CapsuleMesh_ifvoy")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_v5ucs")
+debug_color = Color(0, 0.5647059, 0.8666667, 1)
+
+[node name="verDirecaodoPlayer" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9997805, 0, -0.029634569, 0, 2, 0, 0.029634569, 0, 1.9997805, 0.0024570823, 0.55104303, 0.7544263)
+size = Vector3(0.07, 0.155, 0.595)
+material = SubResource("StandardMaterial3D_b1fvj")
+
+[node name="GunHolder" parent="." instance=ExtResource("2_r313e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50480396, 0, 0.77292407)

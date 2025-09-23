@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddaaathug6mkc"]
+[gd_scene load_steps=2 format=3 uid="uid://ddaaathug6mkc"]
 
 [ext_resource type="Script" uid="uid://dvbpv5n4ii7wi" path="res://scenes_and_scripts/basic_hud.gd" id="1_h2lbk"]
-[ext_resource type="PackedScene" uid="uid://ba523cl80rb3e" path="res://scenes_and_scripts/player.tscn" id="2_5nxyh"]
 
 [node name="BasicHud" type="CanvasLayer"]
 script = ExtResource("1_h2lbk")
@@ -26,7 +25,7 @@ offset_left = -75.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Munição!"
+text = "Munição! 10/90"
 
 [node name="Health" type="Label" parent="Control"]
 unique_name_in_owner = true
@@ -37,7 +36,4 @@ anchor_bottom = 1.0
 offset_top = -27.0
 offset_right = 74.0
 grow_vertical = 0
-text = "Munição"
-
-[node name="Player" parent="." instance=ExtResource("2_5nxyh")]
-unique_name_in_owner = true
+text = "Vida! 100/100"

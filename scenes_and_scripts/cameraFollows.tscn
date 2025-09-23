@@ -1,26 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://dakilm6ghi0qi"]
+[gd_scene load_steps=7 format=3 uid="uid://dakilm6ghi0qi"]
 
-[ext_resource type="Script" uid="uid://cveiheify3rf6" path="res://scenes_and_scripts/character_body_3d.gd" id="1_b1fvj"]
+[ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="1_b1fvj"]
 [ext_resource type="Script" uid="uid://cxy3rwsl1kl1v" path="res://scenes_and_scripts/cameraFollow.gd" id="2_e50i7"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_v5ucs"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o8nu8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdmq6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1fvj"]
 next_pass = SubResource("CanvasItemMaterial_o8nu8")
 albedo_color = Color(0.15294118, 0.8117647, 0.7607843, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_801x2"]
-material = SubResource("StandardMaterial3D_pdmq6")
+material = SubResource("StandardMaterial3D_b1fvj")
 size = Vector2(20, 20)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ifvoy"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5ucs"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1fvj"]
-albedo_color = Color(0.87058824, 0, 0.039215688, 1)
 
 [node name="CamaraScene" type="Node3D"]
 
@@ -37,29 +30,9 @@ shape = SubResource("WorldBoundaryShape3D_v5ucs")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_801x2")
 
-[node name="Player" type="Node3D" parent="."]
-transform = Transform3D(0.036626328, 0, -0.9993291, 0, 1, 0, 0.9993291, 0, 0.036626328, 0, 0, 0)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="Player"]
-transform = Transform3D(-0.49995348, 0, 0.0068240273, 0, 0.5, 0, -0.0068240273, 0, -0.49995348, 0, 1.2623923, 0)
-script = ExtResource("1_b1fvj")
-
-[node name="Node3D" type="Node3D" parent="Player/CharacterBody3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CharacterBody3D/Node3D"]
-mesh = SubResource("CapsuleMesh_ifvoy")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_v5ucs")
-debug_color = Color(0, 0.5647059, 0.8666667, 1)
-
-[node name="verDirecaodoPlayer" type="CSGBox3D" parent="Player/CharacterBody3D"]
-transform = Transform3D(0.037731715, 0, -1.999644, 0, 2, 0, 1.999644, 0, 0.037731715, -0.5300366, 0.4130571, -0.25172108)
-size = Vector3(0.07, 0.155, 0.595)
-material = SubResource("StandardMaterial3D_b1fvj")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.071997315, 0.8418128, -0.5349464, -0.019938752, 0.5374458, 0.8430626, 0.99720556, -0.05003207, 0.055479355, -1.3316715, 3.204712, -0.019325085)
 script = ExtResource("2_e50i7")
-player = NodePath("../Player/CharacterBody3D")
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("1_b1fvj")]
