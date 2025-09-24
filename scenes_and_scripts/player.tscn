@@ -32,3 +32,4 @@ material = SubResource("StandardMaterial3D_b1fvj")
 
 [node name="GunHolder" parent="." instance=ExtResource("2_44uky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50480396, 0, 0.77292407)
+shoot_type = null
