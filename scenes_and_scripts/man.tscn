@@ -88,6 +88,9 @@ blend_shape_mode = 0
 
 [node name="man" instance=ExtResource("1_55ldu")]
 
+[node name="cs_user_c_shoulder_r" parent="char_grp/cs_grp" index="24"]
+visible = false
+
 [node name="Cube_001" parent="char_grp/rig/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_1o6dn")
 
