@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2vkeqfeg1jid"
-path="res://.godot/imported/crosshair.png-7a5ee98d03b748045923e3a0fa977b20.ctex"
+uid="uid://beuu87rbc6a1r"
+path="res://.godot/imported/ammo_counter_sprite.png-9ce113ec41e4995b4f32a5546bdd7c05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crosshair.png"
-dest_files=["res://.godot/imported/crosshair.png-7a5ee98d03b748045923e3a0fa977b20.ctex"]
+source_file="res://assets/HUD/ammo_counter_sprite.png"
+dest_files=["res://.godot/imported/ammo_counter_sprite.png-9ce113ec41e4995b4f32a5546bdd7c05.ctex"]
 
 [params]
 
