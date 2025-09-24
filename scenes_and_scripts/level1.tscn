@@ -27,14 +27,20 @@ shape = SubResource("WorldBoundaryShape3D_xeb76")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016967058, -0.27040577)
 mesh = SubResource("PlaneMesh_v5daa")
 
-[node name="Camera3D2" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.071997315, 0.8418128, -0.5349464, -0.019938752, 0.5374458, 0.8430626, 0.99720556, -0.05003207, 0.055479355, -1.3316715, 3.204712, -0.019325085)
 script = ExtResource("1_vho74")
 player = NodePath("../Player")
+height = 15.0
+follow_speed = 0.5
+mouse_influence = 0.05
 
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77952, 0)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+fall_acceleration = 0
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9175466, 0.39762837, 0, -0.39762837, 0.9175466, 0, 1.6599979, 4.9176025)

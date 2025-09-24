@@ -20,8 +20,7 @@ func _process(delta):
 	var target_pos = base_camera_pos + mouse_offset * mouse_influence
 	global_transform.origin = global_transform.origin.lerp(target_pos, delta * follow_speed)
 	
-	var look_direction = Vector3(0, -3, 2)  
-	look_at(global_transform.origin + look_direction, Vector3.UP)
+	look_at(player_pos, Vector3.UP)
 
 func get_mouse_world_offset() -> Vector3:
 	var mouse_pos_2d = get_viewport().get_mouse_position()
