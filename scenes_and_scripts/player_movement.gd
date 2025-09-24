@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var speed = 150
+@export var speed = 300
 
 @onready var camera: Camera3D = $"../Camera3D"
 
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		var angle = atan2(direction.x, direction.z)
 		
 		# Apply the rotation to the player's Y-axis
-		rotation.y = angle
+		rotation.y = angle 
 
 		 
 		

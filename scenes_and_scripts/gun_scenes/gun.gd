@@ -8,7 +8,7 @@ var ammo_magazine:float
 var total_ammo:float
 const BULLET_SPEED:float = 14
 const BULLET = preload("res://scenes_and_scripts/gun_scenes/bullet.tscn")
-@onready var character_body_3d: CharacterBody3D = $".."
+ 
 @onready var gun_barrel: Node3D = $glock/GunBarrel
 
 
@@ -26,10 +26,9 @@ func _on_shoot() -> void:
 		var bullet_instance:RigidBody3D = BULLET.instantiate()
 		var format_string = "BulletPos %s, PlayerPos: %s, RaycastPos: %s"
 		bullet_instance.position = ray_cast_3d.global_position
-		var actual_string = format_string % [bullet_instance.position, character_body_3d.position, ray_cast_3d.position]
 		var node_root := $"../.."
 		node_root.add_child(bullet_instance)
  
-		bullet_instance.apply_impulse(character_body_3d.global_transform.basis.z * BULLET_SPEED)
-		print(actual_string)
+		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
+		 
 		

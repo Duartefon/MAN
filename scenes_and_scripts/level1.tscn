@@ -29,16 +29,17 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.726471, 0, -3.4631348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0344315, 0, -3.3166504)
 use_collision = true
-size = Vector3(17.25592, 1, 19.441895)
+size = Vector3(63.766068, 1, 48.54297)
 
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 3.4777243, -0.23128223)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.071997315, 0.8418128, -0.5349464, -0.019938752, 0.5374458, 0.8430626, 0.99720556, -0.05003207, 0.055479355, -15.511001, 7.5746427, -2.5370357)
+transform = Transform3D(0.06603745, 0.9375718, -0.3414647, -0.034931686, 0.34417418, 0.9382558, 0.99720556, -0.050032083, 0.05547935, -15.511001, 17.494322, -2.5370357)
 script = ExtResource("2_vho74")
 player = NodePath("../Player")
+height = 15.0
 
 [node name="BasicHud" parent="." instance=ExtResource("3_xfcms")]
