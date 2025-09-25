@@ -24,7 +24,7 @@ var can_shoot:bool = true
 var can_reload:bool = true
 
 signal weapon_reloaded(current_magazine_ammo, total_ammo)
-
+	
  	
 
 
@@ -53,7 +53,8 @@ func _on_shoot() -> void:
 	print("_on_shoot called")
 	if shoot_type == GunType.PROJECTILE:
 		print("firing my weapon!!")
-		var bullet_instance:RigidBody3D = BULLET.instantiate()
+		var bullet_instance:BulletData = BULLET.instantiate()
+		bullet_instance.set_damage(bullet_damage)
 		bullet_instance.position = ray_cast_3d.global_position
  
 		var node_root := get_tree().get_root().get_children()[0]

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://scenes_and_scripts/signal_bus.gd"
 
+[global_group]
+
+Bullets=""
+
 [input]
 
 ui_left={

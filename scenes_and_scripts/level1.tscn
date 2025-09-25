@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdybq1vph4u02"]
+[gd_scene load_steps=8 format=3 uid="uid://cdybq1vph4u02"]
 
 [ext_resource type="Script" uid="uid://cxy3rwsl1kl1v" path="res://scenes_and_scripts/cameraFollow.gd" id="2_vho74"]
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
 [ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="3_xfcms"]
+[ext_resource type="PackedScene" uid="uid://dag3vpw5g0mp" path="res://scenes_and_scripts/enemy.tscn" id="4_xeb76"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vho74"]
 sky_top_color = Color(0.05119122, 0.50481564, 0.57051575, 1)
@@ -45,3 +46,8 @@ fall_acceleration = 76
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5046783, 0.8633075, 0, -0.8633075, 0.5046783, 0, 20.529016, 10.924484)
 script = ExtResource("2_vho74")
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_xeb76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8760796, -14.5111065)
