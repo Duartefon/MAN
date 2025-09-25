@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqxboitl7bqhf"]
+[gd_scene load_steps=4 format=3 uid="uid://dqxboitl7bqhf"]
 
 [ext_resource type="PackedScene" uid="uid://yyg71ixugrgq" path="res://assets/models/man.blend" id="1_55ldu"]
 [ext_resource type="PackedScene" uid="uid://ckv17j7mpqiqd" path="res://scenes_and_scripts/gun_scenes/gun.tscn" id="2_hckg2"]
+[ext_resource type="Script" uid="uid://qddun8vku073" path="res://scenes_and_scripts/aiming.gd" id="2_uv8s1"]
 
 [node name="man" instance=ExtResource("1_55ldu")]
+script = ExtResource("2_uv8s1")
 
 [node name="Skeleton3D" parent="char_grp/rig" index="0"]
 bones/2/position = Vector3(0, 0.22110642, 2.415174)
@@ -140,7 +142,6 @@ bone_idx = 140
 
 [node name="GunHolder" parent="char_grp/rig/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_hckg2")]
 transform = Transform3D(-0.8503483, -0.06187919, 0.5225695, 0.45509088, 0.41210222, 0.78934383, -0.264196, 0.90903234, -0.32226968, 0.07871199, 0.92999697, 0.11979079)
-script = null
 
 [node name="AnimationPlayer" parent="." index="1"]
 playback_auto_capture_transition_type = 1
