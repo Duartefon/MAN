@@ -133,15 +133,15 @@ bones/196/rotation = Quaternion(-0.6051885, 0.056859512, 0.7938018, -0.019816382
 bones/208/rotation = Quaternion(0.5157798, -0.51577973, -0.48370582, -0.48370576)
 bones/212/rotation = Quaternion(0.5157798, 0.51577973, 0.48370582, -0.48370576)
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="char_grp/rig/Skeleton3D" index="3"]
-transform = Transform3D(-0.8515179, 0.49517998, -0.1723783, 0.025139093, 0.3669408, 0.92990464, 0.52372277, 0.7874968, -0.324905, -0.96526754, 3.5166957, 1.7076869)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="char_grp/rig/Skeleton3D" index="2"]
+transform = Transform3D(-0.8515179, 0.49517998, -0.1723783, 0.025139093, 0.3669408, 0.92990464, 0.52372277, 0.7874968, -0.324905, -0.9652675, 3.5166955, 1.7076869)
 bone_name = "hand.r"
 bone_idx = 140
 
 [node name="GunHolder" parent="char_grp/rig/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_hckg2")]
-transform = Transform3D(-0.9718937, -0.079092845, 0.22173578, 0.1771138, 0.37483808, 0.91001505, -0.15509087, 0.9237102, -0.35029423, 0.07871187, 0.92999697, 0.11979079)
+transform = Transform3D(-0.8503483, -0.06187919, 0.5225695, 0.45509088, 0.41210222, 0.78934383, -0.264196, 0.90903234, -0.32226968, 0.07871199, 0.92999697, 0.11979079)
+script = null
 
 [node name="AnimationPlayer" parent="." index="1"]
-autoplay = "Run"
 playback_auto_capture_transition_type = 1
 speed_scale = 1.8

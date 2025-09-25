@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdybq1vph4u02"]
+[gd_scene load_steps=6 format=3 uid="uid://cdybq1vph4u02"]
 
-[ext_resource type="Script" uid="uid://cxy3rwsl1kl1v" path="res://scenes_and_scripts/cameraFollow.gd" id="2_vho74"]
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
 [ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="3_xfcms"]
 
@@ -34,12 +33,9 @@ use_collision = true
 size = Vector3(63.766068, 1, 48.54297)
 
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 3.4777243, -0.23128223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.06603745, 0.9375718, -0.3414647, -0.034931686, 0.34417418, 0.9382558, 0.99720556, -0.050032083, 0.05547935, -15.511001, 17.494322, -2.5370357)
-script = ExtResource("2_vho74")
-player = NodePath("../Player")
-height = 15.0
+transform = Transform3D(0.059306327, 0.9982398, -4.371139e-08, 2.5923599e-09, 4.3634447e-08, 1, 0.9982398, -0.059306327, 1.9106855e-15, -5.2476416, 17.494322, -2.5370357)
 
 [node name="BasicHud" parent="." instance=ExtResource("3_xfcms")]
