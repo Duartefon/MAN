@@ -35,6 +35,10 @@ size = Vector3(63.766068, 1, 48.54297)
 
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)
+speed = 15
+h_accelerate = 9
+h_desaccelerate = 9
+fall_acceleration = 76
 
 [node name="BasicHud" parent="." instance=ExtResource("3_xfcms")]
 

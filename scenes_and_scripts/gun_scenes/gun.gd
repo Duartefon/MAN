@@ -1,4 +1,7 @@
 extends Node3D
+class_name Gun
+
+
 @export var shoot_type:GunType
 @onready var ray_cast_3d: RayCast3D = $glock/RayCast3D
 @onready var camera: Camera3D = $"../../../../../../../Camera3D"
@@ -12,13 +15,15 @@ const BULLET_SPEED:float = 14
 const BULLET = preload("res://scenes_and_scripts/gun_scenes/bullet.tscn")
 
 var bullet_damage:float = 50 
-var magazine_ammo:float = 10
-var current_magazine_ammo:float = magazine_ammo 
-var total_ammo:float = 50
+var magazine_ammo:int = 10
+var current_magazine_ammo:int = magazine_ammo 
+var total_ammo:int = 50
 var fire_rate: float = 0.5
 var reload_duration: float = 0.45
 var can_shoot:bool = true
 var can_reload:bool = true
+
+signal weapon_reloaded(current_magazine_ammo, total_ammo)
 
  	
 
@@ -33,6 +38,8 @@ func _process(delta: float) -> void:
 		current_magazine_ammo -= 1
 		can_shoot = false
 		fire_rate_timer.start(fire_rate)
+		SignalBus.update_weapon_ammo.emit(current_magazine_ammo, total_ammo)
+		
 	if Input.is_action_just_pressed("reload_gun") and can_reload:
 		_on_reload()
 		can_reload = false
@@ -53,6 +60,7 @@ func _on_shoot() -> void:
 		node_root.add_child(bullet_instance)
  		
 		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
+	
 		
 		
  
@@ -65,10 +73,13 @@ func _on_reload() -> void:
 		can_reload = false
 		reload_timer.start(reload_duration)
 		
+		
 func _on_reload_timeout() -> void:
 	can_reload = true	
+	SignalBus.update_weapon_ammo.emit(current_magazine_ammo, total_ammo)
 	
  
-	
+func get_ammo() -> Vector2:
+	return Vector2(current_magazine_ammo, total_ammo)
 
 		

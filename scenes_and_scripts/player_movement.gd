@@ -15,14 +15,18 @@ var horizontal_velocity = Vector3.ZERO
 @onready var man: Node3D = $man
 
 @onready var ver_direcaodo_player: CSGBox3D = $verDirecaodoPlayer
+var gun_script:Gun
 
 
 
- 
+func _ready() -> void:
+	gun_script = $man.find_child("GunHolder")
+	print(gun_script)
 	
 func _physics_process(delta):
 	# Obtain player inputs
 	var direction = Vector3.ZERO
+	#print(direction, speed)
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
@@ -71,4 +75,5 @@ func _look_at_crosshair() -> void:
 		var look_at_me = Vector3(world_position.x, position.y, world_position.z )
 		look_at(look_at_me, Vector3.UP)
 		 
-		
+func get_ammo():
+	return gun_script.get_ammo()
