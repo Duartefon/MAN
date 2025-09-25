@@ -18,7 +18,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire_gun"):
 		print("pressionado")
 		_on_shoot()
-		
+
+
 func _on_shoot() -> void:
 	print("_on_shoot called")
 	if shoot_type == GunType.PROJECTILE:
@@ -26,7 +27,7 @@ func _on_shoot() -> void:
 		var bullet_instance:RigidBody3D = BULLET.instantiate()
 		var format_string = "BulletPos %s, PlayerPos: %s, RaycastPos: %s"
 		bullet_instance.position = ray_cast_3d.global_position
-		var node_root := $"../.."
+		var node_root := $"../../../../../../.."
 		node_root.add_child(bullet_instance)
  
 		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
