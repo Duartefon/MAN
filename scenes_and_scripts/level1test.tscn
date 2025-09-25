@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://8gxkjjw20wsh"]
+
+[ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="1_nelyd"]
+[ext_resource type="Script" uid="uid://bc2nuuf4sbc07" path="res://scenes_and_scripts/player_movementTest.gd" id="2_4v0p1"]
+[ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="2_m2dow"]
+[ext_resource type="Script" uid="uid://cxy3rwsl1kl1v" path="res://scenes_and_scripts/cameraFollow.gd" id="3_4v0p1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vho74"]
+sky_top_color = Color(0.05119122, 0.50481564, 0.57051575, 1)
+sky_horizon_color = Color(0.55373174, 0.64023733, 0.6655934, 1)
+ground_bottom_color = Color(0.2447741, 0.13717192, 0.1728962, 1)
+ground_horizon_color = Color(0.55373174, 0.64023733, 0.6655934, 1)
+
+[sub_resource type="Sky" id="Sky_xfcms"]
+sky_material = SubResource("ProceduralSkyMaterial_vho74")
+
+[sub_resource type="Environment" id="Environment_xeb76"]
+background_mode = 2
+sky = SubResource("Sky_xfcms")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Level1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xeb76")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0344315, 0, -3.3166504)
+use_collision = true
+size = Vector3(63.766068, 1, 48.54297)
+
+[node name="Player" parent="." instance=ExtResource("1_nelyd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)
+script = ExtResource("2_4v0p1")
+
+[node name="BasicHud" parent="." instance=ExtResource("2_m2dow")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5046783, 0.8633075, 0, -0.8633075, 0.5046783, 0, 20.529016, 10.924484)
+script = ExtResource("3_4v0p1")
