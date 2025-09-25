@@ -66,7 +66,7 @@ func _look_at_crosshair() -> void:
 	var intersection = space_state.intersect_ray(params)
 	 
 	if intersection:
-		print("NOT EMPTY")
+		 
 		var world_position = intersection.position
 		var look_at_me = Vector3(world_position.x, position.y, world_position.z )
 		look_at(look_at_me, Vector3.UP)

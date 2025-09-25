@@ -1,11 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqxboitl7bqhf"]
+[gd_scene load_steps=3 format=3 uid="uid://dqxboitl7bqhf"]
 
 [ext_resource type="PackedScene" uid="uid://yyg71ixugrgq" path="res://assets/models/man.blend" id="1_55ldu"]
 [ext_resource type="PackedScene" uid="uid://ckv17j7mpqiqd" path="res://scenes_and_scripts/gun_scenes/gun.tscn" id="2_hckg2"]
-[ext_resource type="Script" uid="uid://qddun8vku073" path="res://scenes_and_scripts/aiming.gd" id="2_uv8s1"]
 
 [node name="man" instance=ExtResource("1_55ldu")]
-script = ExtResource("2_uv8s1")
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="char_grp/rig" index="0"]
 bones/2/position = Vector3(0, 0.22110642, 2.415174)
@@ -136,7 +135,7 @@ bones/208/rotation = Quaternion(0.5157798, -0.51577973, -0.48370582, -0.48370576
 bones/212/rotation = Quaternion(0.5157798, 0.51577973, 0.48370582, -0.48370576)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="char_grp/rig/Skeleton3D" index="2"]
-transform = Transform3D(-0.8515179, 0.49517998, -0.1723783, 0.025139093, 0.3669408, 0.92990464, 0.52372277, 0.7874968, -0.324905, -0.9652675, 3.5166955, 1.7076869)
+transform = Transform3D(-0.85151786, 0.49517992, -0.17237832, 0.025139093, 0.3669408, 0.9299047, 0.52372277, 0.78749675, -0.32490504, -0.928955, 3.5445886, 1.7746139)
 bone_name = "hand.r"
 bone_idx = 140
 
