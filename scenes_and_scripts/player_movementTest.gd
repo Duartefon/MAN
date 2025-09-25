@@ -58,7 +58,7 @@ func _physics_process(delta):
 	_look_at_crosshair()
 	move_and_slide()
 
-	# --- Atualiza a AnimationTree com base no input ---
+	#Animations, blend tree
 	var move_input_2d = Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
