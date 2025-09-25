@@ -1,7 +1,6 @@
 extends Node3D
 class_name Gun
 
-
 @export var shoot_type:GunType
 @onready var ray_cast_3d: RayCast3D = $glock/RayCast3D
 @onready var camera: Camera3D = $"../../../../../../../Camera3D"
@@ -25,9 +24,6 @@ var can_reload:bool = true
 
 signal weapon_reloaded(current_magazine_ammo, total_ammo)
 	
- 	
-
-
 func _ready() -> void:
 	fire_rate_timer.timeout.connect(_on_fire_rate_timeout)
 	reload_timer.timeout.connect(_on_reload_timeout)
@@ -45,14 +41,10 @@ func _process(delta: float) -> void:
 		can_reload = false
 		
 func _on_fire_rate_timeout():
-	print("PODES DISPARAR")
 	can_shoot = true
 
-
 func _on_shoot() -> void:
-	print("_on_shoot called")
 	if shoot_type == GunType.PROJECTILE:
-		print("firing my weapon!!")
 		var bullet_instance:BulletData = BULLET.instantiate()
 		bullet_instance.set_damage(bullet_damage)
 		bullet_instance.position = ray_cast_3d.global_position
@@ -62,11 +54,7 @@ func _on_shoot() -> void:
  		
 		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
 	
-		
-		
- 
 func _on_reload() -> void:
-	print("RELOADING ARGH")
 	var ammo_to_reload = magazine_ammo - current_magazine_ammo 
 	if total_ammo - ammo_to_reload >= 0 and can_reload:
 		current_magazine_ammo = magazine_ammo
@@ -74,12 +62,10 @@ func _on_reload() -> void:
 		can_reload = false
 		reload_timer.start(reload_duration)
 		
-		
 func _on_reload_timeout() -> void:
 	can_reload = true	
 	SignalBus.update_weapon_ammo.emit(current_magazine_ammo, total_ammo)
 	
- 
 func get_ammo() -> Vector2:
 	return Vector2(current_magazine_ammo, total_ammo)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdybq1vph4u02"]
+[gd_scene load_steps=10 format=3 uid="uid://cdybq1vph4u02"]
 
 [ext_resource type="Script" uid="uid://cxy3rwsl1kl1v" path="res://scenes_and_scripts/cameraFollow.gd" id="2_vho74"]
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
@@ -20,6 +20,13 @@ sky = SubResource("Sky_xfcms")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_xeb76"]
+vertices = PackedVector3Array(-84.052605, 0.3489151, -27.088135, -84.052605, 0.3489151, 60.161865, 87.197395, 0.3489151, 60.161865, 87.197395, 0.3489151, -27.088135)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xeb76"]
+albedo_color = Color(0.62155014, 0.17857474, 0.639389, 1)
+
 [node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,11 +35,6 @@ environment = SubResource("Environment_xeb76")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0344315, 0, -3.3166504)
-use_collision = true
-size = Vector3(63.766068, 1, 48.54297)
 
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)
@@ -50,4 +52,59 @@ script = ExtResource("2_vho74")
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("4_xeb76")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8760796, -14.5111065)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60056686, 7.900878, -16.661926)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_xeb76")
+
+[node name="Obstacles" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6510849, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5334377, 0.71234035, 16.580322)
+use_collision = true
+size = Vector3(172.17209, 1, 88.336914)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78325844, 3.8422747, 22.10027)
+use_collision = true
+size = Vector3(2.6, 8.237441, 19.124023)
+material = SubResource("StandardMaterial3D_xeb76")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.704903, 3.8422747, 16.46648)
+use_collision = true
+size = Vector3(30.608593, 8.237441, 30.391602)
+material = SubResource("StandardMaterial3D_xeb76")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.77176, 3.8422747, -0.5598068)
+use_collision = true
+size = Vector3(30.608593, 8.237441, 8.92334)
+material = SubResource("StandardMaterial3D_xeb76")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.77176, 3.8422747, 21.209951)
+use_collision = true
+size = Vector3(30.608593, 8.237441, 8.92334)
+material = SubResource("StandardMaterial3D_xeb76")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.036482, 3.8422747, -4.5686684)
+use_collision = true
+size = Vector3(30.608593, 8.237441, 0.99017334)
+material = SubResource("StandardMaterial3D_xeb76")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.036482, 3.8422747, -12.436834)
+use_collision = true
+size = Vector3(30.608593, 8.237441, 0.99017334)
+material = SubResource("StandardMaterial3D_xeb76")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.77176, 3.8422747, -16.190323)
+use_collision = true
+size = Vector3(30.608593, 8.237441, 8.92334)
+material = SubResource("StandardMaterial3D_xeb76")

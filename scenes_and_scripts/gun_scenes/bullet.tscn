@@ -36,3 +36,5 @@ mesh = SubResource("SphereMesh_r2dv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_vfbmy")
+
+[node name="LifeTime" type="Timer" parent="."]
