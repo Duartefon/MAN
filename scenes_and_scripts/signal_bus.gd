@@ -1,6 +1,6 @@
 extends Node
 
 
-signal update_weapon_ammo(current_magazine, total_ammo)
+signal update_weapon_ammo(current_magazine:int, total_ammo:int)
 	
-signal weapon_fired()
+signal update_player_health(current_health:float, total_health:float)
