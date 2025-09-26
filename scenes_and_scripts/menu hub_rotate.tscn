@@ -1,0 +1,161 @@
+[gd_scene load_steps=7 format=3 uid="uid://b50d6kcnp4ki4"]
+
+[ext_resource type="Script" uid="uid://bukk31wy3b2qo" path="res://scenes_and_scripts/menu_hub_rotate.gd" id="1_v1uji"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_saat1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_px1gc"]
+sky_material = SubResource("ProceduralSkyMaterial_saat1")
+
+[sub_resource type="Environment" id="Environment_kc7ye"]
+background_mode = 2
+sky = SubResource("Sky_px1gc")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_saat1"]
+albedo_color = Color(1.4318898e-06, 0.4182031, 0.21618968, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px1gc"]
+albedo_color = Color(0.27456772, 0.25995257, 0.25080532, 1)
+
+[node name="Hub_menu" type="Node3D" node_paths=PackedStringArray("menu_points")]
+script = ExtResource("1_v1uji")
+menu_points = [NodePath("city_models/point_stage1"), NodePath("city_models/point_stage2"), NodePath("city_models/point_upgrades")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kc7ye")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="city_models" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3827595, 0, -0.2625767)
+
+[node name="CSGBoxFloor" type="CSGBox3D" parent="city_models"]
+size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_saat1")
+
+[node name="CSGBox3DBuildings" type="CSGBox3D" parent="city_models/CSGBoxFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.512146, 0)
+size = Vector3(1, 4.024292, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="city_models/CSGBoxFloor/CSGBox3DBuildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9314544, 0, -1.7290874)
+size = Vector3(1, 4.024292, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="city_models/CSGBoxFloor/CSGBox3DBuildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.114608, -0.46090698, -2.0147843)
+size = Vector3(1, 3.102478, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="city_models/CSGBoxFloor/CSGBox3DBuildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1598349, -0.6782608, 0.06787658)
+size = Vector3(1, 2.6677704, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="city_models/CSGBoxFloor/CSGBox3DBuildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01281, -0.6782608, 0.06787658)
+size = Vector3(1, 2.6677704, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="city_models/CSGBoxFloor/CSGBox3DBuildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045847178, -0.6782608, -2.3905222)
+size = Vector3(1, 2.6677704, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="city_models/CSGBoxFloor/CSGBox3DBuildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9484508, 0.3408928, 0.4564855)
+size = Vector3(1, 4.7060776, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="city_models/CSGBoxFloor/CSGBox3DBuildings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03428173, -0.50481606, 2.2238457)
+size = Vector3(1, 3.01466, 1)
+material = SubResource("StandardMaterial3D_px1gc")
+
+[node name="point_stage1" type="Marker3D" parent="city_models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96135, 0.7590089, 3.0473456)
+metadata/title = "Stage 1"
+metadata/description = "Go to Stage 1"
+metadata/Scene_path = ""
+
+[node name="point_stage2" type="Marker3D" parent="city_models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.737269, 0.96541786, 0.2625767)
+metadata/title = "Stage 2"
+metadata/description = "Go to Stage 2"
+metadata/Scene_path = ""
+
+[node name="point_upgrades" type="Marker3D" parent="city_models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8486177, 1.7626162, -3.4025555)
+metadata/title = "Upgrades"
+metadata/description = "Go to Upgrades menu"
+metadata/Scene_path = ""
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Infobox" type="PanelContainer" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_right = 165.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Infobox"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Infobox/MarginContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/Infobox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="description" type="Label" parent="UI/Infobox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="confirm_box" type="PanelContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -29.0
+offset_right = 52.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/confirm_box"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/confirm_box/VBoxContainer"]
+layout_mode = 2
+text = "Are you sure?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/confirm_box/VBoxContainer"]
+layout_mode = 2
+
+[node name="yes_button" type="Button" parent="UI/confirm_box/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Yes"
+
+[node name="no_button" type="Button" parent="UI/confirm_box/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "No"
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3764775, 0, -0.25659555)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(0.75626475, 0, 0.6542658, 0, 1, 0, -0.6542658, 0, 0.75626475, 6.603321, 2.3371246, 4.3975344)
+
+[connection signal="pressed" from="UI/confirm_box/VBoxContainer/HBoxContainer/yes_button" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="UI/confirm_box/VBoxContainer/HBoxContainer/no_button" to="." method="_on_no_button_pressed"]
