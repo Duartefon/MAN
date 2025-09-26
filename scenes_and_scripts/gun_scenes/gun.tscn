@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckv17j7mpqiqd"]
+[gd_scene load_steps=5 format=3 uid="uid://ckv17j7mpqiqd"]
 
 [ext_resource type="Script" uid="uid://06cw7c7jcqmo" path="res://scenes_and_scripts/gun_scenes/gun.gd" id="1_aixdi"]
+[ext_resource type="Resource" uid="uid://c11mnsx2g0sks" path="res://assets/guns/glock_data.tres" id="2_c8d17"]
 [ext_resource type="PackedScene" uid="uid://b2lc8dhamxfri" path="res://assets/guns/glock.blend" id="2_vnqf6"]
+[ext_resource type="AudioStream" uid="uid://dq4o4ow7o4gvn" path="res://assets/sound/revolver_shots.mp3" id="3_lfbla"]
 
 [node name="GunHolder" type="Node3D"]
 script = ExtResource("1_aixdi")
+shoot_type = null
+gun_data = ExtResource("2_c8d17")
 
 [node name="glock" parent="." instance=ExtResource("2_vnqf6")]
+visible = false
 
 [node name="RayCast3D" type="RayCast3D" parent="glock"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.20580721, 1.6222237)
@@ -16,3 +21,6 @@ one_shot = true
 
 [node name="FireRateTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_lfbla")

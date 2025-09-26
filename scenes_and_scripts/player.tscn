@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl1dtjqvty7st"]
+[gd_scene load_steps=7 format=3 uid="uid://dl1dtjqvty7st"]
 
 [ext_resource type="Script" uid="uid://bc2nuuf4sbc07" path="res://scenes_and_scripts/player_movementTest.gd" id="1_e8vqu"]
 [ext_resource type="PackedScene" uid="uid://dqxboitl7bqhf" path="res://scenes_and_scripts/man.tscn" id="2_e8vqu"]
+[ext_resource type="AudioStream" uid="uid://bwvoe21i58por" path="res://assets/sound/clean-revolver-reload-6889.mp3" id="3_44uky"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e8vqu"]
 radius = 1.255
@@ -26,3 +27,7 @@ shape = SubResource("CapsuleShape3D_e8vqu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, -0.0028923221, 5.5270553, -5.070328)
 mesh = SubResource("CapsuleMesh_44uky")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_44uky")
+autoplay = true

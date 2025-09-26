@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GunData" load_steps=5 format=3 uid="uid://cjdahix0lr7ui"]
+
+[ext_resource type="PackedScene" uid="uid://rqshhfg2i52e" path="res://assets/guns/glock_model.tscn" id="1_h564v"]
+[ext_resource type="Script" uid="uid://dbgj7lqy3kdh4" path="res://scenes_and_scripts/gun_scenes/gun_data.gd" id="1_wga8j"]
+[ext_resource type="AudioStream" uid="uid://bwvoe21i58por" path="res://assets/sound/clean-revolver-reload-6889.mp3" id="2_pws43"]
+[ext_resource type="AudioStream" uid="uid://dq4o4ow7o4gvn" path="res://assets/sound/revolver_shots.mp3" id="3_c8vk6"]
+
+[resource]
+script = ExtResource("1_wga8j")
+MODEL = ExtResource("1_h564v")
+SHOOT_SOUND = ExtResource("3_c8vk6")
+RELOAD_SOUND = ExtResource("2_pws43")
+metadata/_custom_type_script = "uid://dbgj7lqy3kdh4"

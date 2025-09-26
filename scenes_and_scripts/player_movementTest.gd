@@ -33,8 +33,8 @@ func _physics_process(delta):
 	# Obtain player inputs
 	var direction = Vector3.ZERO
 	#print(direction, speed)
-	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	direction.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	direction.x = Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")
+	direction.z = Input.get_action_strength("ui_up") - Input.get_action_strength("ui_down")
 	
 	#Normalize so that diagonal speed isnt greater than straight speed
 	if direction != Vector3.ZERO:
