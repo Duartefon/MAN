@@ -3,7 +3,8 @@ extends CharacterBody3D
 #@export var speed = 300
 
 @onready var camera: Camera3D = $"../Camera3D"
-@onready var animation_tree: AnimationTree = $"/root/Level1/Player/man/AnimationPlayer/AnimationTree"
+
+@onready var animation_tree: AnimationTree = $Man/AnimationPlayer/AnimationTree
 
 @export var speed = 14 # How fast the player moves
 @export var h_accelerate = 8 # How fast the player speeds up in the horizontal plane
@@ -21,7 +22,7 @@ var gun_script:Gun
 
 
 func _ready() -> void:
-	gun_script = $man.find_child("GunHolder")
+	gun_script = $Man.find_child("GunHolder")
 	animation_tree.active = true
 	print(gun_script)
 	
