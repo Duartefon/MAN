@@ -36,6 +36,23 @@ environment = SubResource("Environment_xeb76")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_xeb76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.02583, 4.2223406, -14.051325)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_xeb76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3227587, 4.222348, -12.98444)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_xeb76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.71911, 4.2223406, -7.732174)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_xeb76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.586655, 4.2223406, -14.868965)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("4_xeb76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.469086, 4.222348, 24.974066)
+
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)
 speed = 15
@@ -48,13 +65,9 @@ fall_acceleration = 76
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5046783, 0.8633075, 0, -0.8633075, 0.5046783, 0, 20.529016, 10.924484)
 script = ExtResource("2_vho74")
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("4_xeb76")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60056686, 7.900878, -16.661926)
-axis_lock_angular_x = true
-axis_lock_angular_z = true
+player = NodePath("../Player")
+distance = 10.0
+height = 30.0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_xeb76")
