@@ -82,7 +82,7 @@ func _update_infobox(point: Marker3D) -> void:
 
 func _on_yes_button_pressed() -> void:
 	# When confirmed, get the scene path from the currently selected point's metadata.
-	var scene_path = menu_points[current_index].get_meta("scene_path")
+	var scene_path = menu_points[current_index].packed_scene
 	if not scene_path or scene_path.is_empty():
 		print("ERROR: No scene_path defined for this menu point!")
 		return
