@@ -12,7 +12,7 @@ class_name Gun
 @export var gun_data: GunData
 enum GunType {PROJECTILE, HITSCAN}
 
-const BULLET_SPEED:float = 14
+const BULLET_SPEED:float = 50
 const BULLET = preload("res://scenes_and_scripts/gun_scenes/bullet.tscn")
 # se tiver tempo 90%  destas variaveis deixam de existir neste script e passa-se a usar diretamente o gun_data.variavel 
 var bullet_damage:float = 50 
