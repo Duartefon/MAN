@@ -56,6 +56,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.469086, 4.222348, 24.97406
 
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)
+speed = 15
+h_accelerate = 9
+h_desaccelerate = 9
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.39366922, 0.9192522, 0, -0.9192522, 0.39366922, -3.3798032, 28.569004, 5.6789207)
