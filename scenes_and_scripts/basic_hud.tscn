@@ -535,5 +535,4 @@ position = Vector2(152, 152)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_64oui")
 animation = &"super_damaged"
-frame_progress = 0.89964634
 speed_scale = 2.0
