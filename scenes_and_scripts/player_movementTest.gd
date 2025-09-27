@@ -86,6 +86,8 @@ func _look_at_crosshair():
 	
 	if !ray_result.is_empty():
 		look_at(ray_result.position)
+		rotation.x = 0
+		rotation.z = 0
 		 
 func get_ammo():
 	return gun_script.get_ammo()
