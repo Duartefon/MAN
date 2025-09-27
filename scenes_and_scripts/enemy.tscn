@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://b4c4a8xahqke" path="res://scenes_and_scripts/enemy.gd" id="1_r7706"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r7706"]
-radius = 1.0346031
-height = 4.672469
+radius = 0.43644512
+height = 2.1488476
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kokxd"]
-radius = 1.0
-height = 4.7620544
+radius = 0.94773483
+height = 2.5338721
 
 [node name="Enemy" type="CharacterBody3D"]
 transform = Transform3D(1.255, 0, 0, 0, 1.255, 0, 0, 0, 1.255, 0, 0, 0)

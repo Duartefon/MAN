@@ -11,10 +11,9 @@ shoot_type = null
 gun_data = ExtResource("2_c8d17")
 
 [node name="glock" parent="." instance=ExtResource("2_vnqf6")]
-visible = false
 
 [node name="RayCast3D" type="RayCast3D" parent="glock"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.20580721, 1.6222237)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.015665293, 0.20580721, 1.6222237)
 
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true

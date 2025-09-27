@@ -18,11 +18,11 @@ var horizontal_velocity = Vector3.ZERO
 var gun_script:Gun
 
 
-
 func _ready() -> void:
 	gun_script = $man.find_child("GunHolder")
 	print(gun_script)
-	
+
+ 
 func _physics_process(delta):
 	# Obtain player inputs
 	var direction = Vector3.ZERO
@@ -77,3 +77,4 @@ func _look_at_crosshair() -> void:
 		 
 func get_ammo():
 	return gun_script.get_ammo()
+	

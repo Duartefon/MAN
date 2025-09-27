@@ -3,6 +3,7 @@ extends CharacterBody3D
 #@export var speed = 300
 
 @onready var camera: Camera3D = $"../Camera3D"
+@export var blend_speed = 10
 
 @export var speed = 25
 @export var h_accelerate = 50
@@ -14,14 +15,14 @@ var horizontal_velocity = Vector3.ZERO
 @onready var man: Node3D = $man
 
 @onready var ver_direcaodo_player: CSGBox3D = $verDirecaodoPlayer
+@onready var anim_tree = $Man/AnimationPlayer/AnimationTree
 var gun_script:Gun
 
 #ANIM
 enum {IDLE, RUN}
 var curr_anim = IDLE
 var run_val = 0
-@onready var anim_tree = $Man/AnimationPlayer/AnimationTree
-@export var blend_speed = 10
+var hp = 100
 
 func _ready() -> void:
 	gun_script = $Man.find_child("GunHolder")
@@ -91,3 +92,10 @@ func _look_at_crosshair():
 		 
 func get_ammo():
 	return gun_script.get_ammo()
+func _process(delta: float) -> void:
+	if hp <= 0:
+		visible = false
+		print("morri")
+		
+func hit(damage:float, dir:Vector3):
+	hp -= damage
