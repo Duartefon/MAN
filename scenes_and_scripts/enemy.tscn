@@ -1,32 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://dag3vpw5g0mp"]
+[gd_scene load_steps=5 format=3 uid="uid://dag3vpw5g0mp"]
 
 [ext_resource type="Script" uid="uid://ka7oj2lgxvkj" path="res://scenes_and_scripts/hurtbox.gd" id="1_0q1ks"]
 [ext_resource type="Script" uid="uid://b4c4a8xahqke" path="res://scenes_and_scripts/enemy.gd" id="1_r7706"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ke24"]
-albedo_color = Color(1.92523e-07, 0.5786062, 0.19291934, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jotin"]
-material = SubResource("StandardMaterial3D_5ke24")
-radius = 1.0
-height = 6.02
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r7706"]
-radius = 1.0488281
-height = 6.000458
+radius = 1.0346031
+height = 4.672469
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kokxd"]
 radius = 1.0
-height = 4.0
+height = 4.7620544
 
 [node name="Enemy" type="CharacterBody3D"]
+transform = Transform3D(1.255, 0, 0, 0, 1.255, 0, 0, 0, 1.255, 0, 0, 0)
 script = ExtResource("1_r7706")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_jotin")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008255005, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5387654, 0)
 shape = SubResource("CapsuleShape3D_r7706")
 
 [node name="Hurtbox" type="Area3D" parent="." groups=["Bullets"]]
@@ -35,6 +25,7 @@ collision_mask = 3
 script = ExtResource("1_0q1ks")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6737213, 0)
 shape = SubResource("CapsuleShape3D_kokxd")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

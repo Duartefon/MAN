@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1q8jqjjse0ao"]
+
+[ext_resource type="PackedScene" uid="uid://dag3vpw5g0mp" path="res://scenes_and_scripts/enemy.tscn" id="1_vfftn"]
+[ext_resource type="PackedScene" uid="uid://b2slp5aj2ews2" path="res://scenes_and_scripts/enemy/plant_model.tscn" id="2_f563t"]
+
+[node name="Enemy" instance=ExtResource("1_vfftn")]
+
+[node name="Hurtbox" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023816401, 0)
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8603287, 0)
+
+[node name="PlantModel" parent="." index="3" instance=ExtResource("2_f563t")]
