@@ -37,7 +37,6 @@ func _physics_process(delta: float) -> void:
 				anim_tree.set("parameters/conditions/Attack", target_in_attack_range())
 		"Attack":
 				anim_tree.set("parameters/conditions/Walk", !target_in_attack_range())
-				print("In range?", !target_in_attack_range())
 				look_at(player.global_position)
 				
 			

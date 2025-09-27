@@ -85,4 +85,6 @@ func _process(delta: float) -> void:
 		print("morri")
 		
 func hit(damage:float, dir:Vector3):
+	print("HP", hp)
 	hp -= damage
+	SignalBus.update_player_health.emit(hp,100)
