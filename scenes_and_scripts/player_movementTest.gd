@@ -86,3 +86,6 @@ func _process(delta: float) -> void:
 		
 func hit(damage:float, dir:Vector3):
 	hp -= damage
+	
+func get_hp():
+	return hp
