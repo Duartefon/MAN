@@ -346,7 +346,7 @@ animation = &"Idle"
 animation = &"Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yt4d4"]
-graph_offset = Vector2(-361.89063, 84.044464)
+graph_offset = Vector2(-344.86618, 129.54709)
 nodes/output/position = Vector2(440, 240)
 nodes/IdleRunBlend/node = SubResource("AnimationNodeBlend2_tbtfp")
 nodes/IdleRunBlend/position = Vector2(60, 200)

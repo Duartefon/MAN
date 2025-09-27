@@ -6,6 +6,7 @@ extends CharacterBody3D
 const SPEED: float = 3
 const ATTACK_RANGE: float = 10.0
 const DAMAGE: float = 25
+const ATTACK_ANIMATION_OFFSET: float = 0.35#when the enemy actually attacks
 var distance_to_stop_following: float = 9
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -85,11 +86,12 @@ func start_attack():
 	
 	
 	
-	var attack_duration = $PlantModel/AnimationPlayer.get_animation("Attack").length
+	var attack_duration = $PlantModel/AnimationPlayer.get_animation("Attack").length - ATTACK_ANIMATION_OFFSET
+ 
 	await get_tree().create_timer(attack_duration).timeout
 	
 	attack_in_progress = false
-	hit_player()
+	#hit_player()
 	curr_anim = IDLE
 
 func handle_anim(delta: float):
