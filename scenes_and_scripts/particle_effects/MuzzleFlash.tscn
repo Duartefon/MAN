@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://cosqbdkjsijv7"]
+
+[ext_resource type="Texture2D" uid="uid://b0aflcy7jq21k" path="res://Assets/muzzle_flash.png" id="1_alf0q"]
+[ext_resource type="ArrayMesh" uid="uid://0x60rnfrojp3" path="res://assets/guns/muzzle_flash_planes.obj" id="2_alf0q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnoru"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9616289, 0.5730292, 0.18990278, 1)
+albedo_texture = ExtResource("1_alf0q")
+albedo_texture_msdf = true
+grow_amount = 0.255
+proximity_fade_enabled = true
+proximity_fade_distance = 0.1
+stencil_flags = 2
+
+[sub_resource type="Curve" id="Curve_qjvp7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s1170"]
+curve = SubResource("Curve_qjvp7")
+
+[sub_resource type="Curve" id="Curve_alf0q"]
+_limits = [0.0, 6.4704685, 0.0, 1.0]
+_data = [Vector2(0, 6.4704685), 0.0, 2.6661255, 0, 0, Vector2(1, 0), -89.95956, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8j4gf"]
+curve = SubResource("Curve_alf0q")
+
+[sub_resource type="Curve" id="Curve_j6j5d"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0.010869563, 1.2141099), 0.0, 3.412633, 0, 0, Vector2(1, 3.6402788), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5uufr"]
+curve = SubResource("Curve_j6j5d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kimvm"]
+angle_min = -720.0
+angle_max = 1152.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_5uufr")
+alpha_curve = SubResource("CurveTexture_s1170")
+emission_curve = SubResource("CurveTexture_8j4gf")
+
+[node name="MuzzleFlash" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_rnoru")
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_kimvm")
+draw_pass_1 = ExtResource("2_alf0q")

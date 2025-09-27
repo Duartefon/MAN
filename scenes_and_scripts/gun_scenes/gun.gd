@@ -8,6 +8,7 @@ class_name Gun
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var muzzle_flash: GPUParticles3D = $glock/MuzzleFlash
 
 @export var gun_data: GunData
 enum GunType {PROJECTILE, HITSCAN}
@@ -36,10 +37,11 @@ func _ready() -> void:
 	fire_rate = gun_data.fire_rate
 	reload_duration = gun_data.reload_duration
 	add_child(gun_data.MODEL.instantiate())
-	
+	muzzle_flash.emitting = false
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire_gun") and current_magazine_ammo > 0 and can_shoot and can_reload:
 		_on_shoot()
+		
 		audio_stream_player_3d.stream = gun_data.SHOOT_SOUND
 		audio_stream_player_3d.play()
 		current_magazine_ammo -= 1
@@ -67,7 +69,7 @@ func _on_shoot() -> void:
 		node_root.add_child(bullet_instance)
  		
 		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
-		
+		muzzle_flash.restart() 
 	
 func _on_reload() -> void:
 	var ammo_to_reload = magazine_ammo - current_magazine_ammo 
