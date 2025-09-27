@@ -38,7 +38,7 @@ func _ready() -> void:
 	add_child(gun_data.MODEL.instantiate())
 	
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("fire_gun") and current_magazine_ammo > 0 and can_shoot:
+	if Input.is_action_just_pressed("fire_gun") and current_magazine_ammo > 0 and can_shoot and can_reload:
 		_on_shoot()
 		audio_stream_player_3d.stream = gun_data.SHOOT_SOUND
 		audio_stream_player_3d.play()
