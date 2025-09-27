@@ -40,7 +40,7 @@ shadow_enabled = true
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("5_5mqiu")]
-transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, 34.376072, 0, -14.472421)
+transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, 0.23832703, 0, -14.472421)
 
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)

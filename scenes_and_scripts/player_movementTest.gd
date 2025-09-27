@@ -88,3 +88,6 @@ func hit(damage:float, dir:Vector3):
 	print("HP", hp)
 	hp -= damage
 	SignalBus.update_player_health.emit(hp,100)
+	
+func get_hp():
+	return hp

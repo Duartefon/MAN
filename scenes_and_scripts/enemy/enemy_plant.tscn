@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1q8jqjjse0ao"]
+[gd_scene load_steps=13 format=3 uid="uid://b1q8jqjjse0ao"]
 
 [ext_resource type="PackedScene" uid="uid://dag3vpw5g0mp" path="res://scenes_and_scripts/enemy.tscn" id="1_vfftn"]
 [ext_resource type="PackedScene" uid="uid://b2slp5aj2ews2" path="res://scenes_and_scripts/enemy/plant_model.tscn" id="2_f563t"]
@@ -6,7 +6,6 @@
 [sub_resource type="Animation" id="Animation_0sqje"]
 resource_name = "Attack"
 length = 2.0416667
-loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -123,6 +122,7 @@ tracks/14/keys = {
 [sub_resource type="Animation" id="Animation_ey0q5"]
 resource_name = "Idle"
 length = 2.0416667
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -225,6 +225,7 @@ tracks/13/keys = PackedFloat32Array(0, 1, -0.5966518, 0.29828686, 0.25088254, 0.
 [sub_resource type="Animation" id="Animation_7p4f3"]
 resource_name = "Walk"
 length = 1.2083334
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -331,45 +332,33 @@ _data = {
 &"Walk": SubResource("Animation_7p4f3")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u0e8p"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tbtfp"]
 animation = &"Attack"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mwcb4"]
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_yt4d4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f563t"]
 animation = &"Idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lh811"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_tbtfp"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vfftn"]
 animation = &"Walk"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u0e8p"]
-xfade_time = 0.2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ypgse"]
-xfade_time = 0.2
-advance_mode = 2
-advance_condition = &"Walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0sqje"]
-xfade_time = 0.2
-advance_mode = 2
-advance_condition = &"Attack"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ey0q5"]
-xfade_time = 0.2
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"Walk"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vfftn"]
-states/Attack/node = SubResource("AnimationNodeAnimation_u0e8p")
-states/Attack/position = Vector2(617, 13)
-states/Idle/node = SubResource("AnimationNodeAnimation_mwcb4")
-states/Idle/position = Vector2(317, 82)
-states/Start/position = Vector2(181, 95)
-states/Walk/node = SubResource("AnimationNodeAnimation_lh811")
-states/Walk/position = Vector2(477, 82)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_u0e8p"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ypgse"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_0sqje"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_ey0q5")]
-graph_offset = Vector2(-23, -66)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yt4d4"]
+graph_offset = Vector2(-361.89063, 84.044464)
+nodes/output/position = Vector2(440, 240)
+nodes/IdleRunBlend/node = SubResource("AnimationNodeBlend2_tbtfp")
+nodes/IdleRunBlend/position = Vector2(60, 200)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_f563t")
+nodes/Idle/position = Vector2(-160, 220)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_vfftn")
+nodes/Walk/position = Vector2(-180, 420)
+nodes/Attack/node = SubResource("AnimationNodeAnimation_tbtfp")
+nodes/Attack/position = Vector2(100, 500)
+nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_yt4d4")
+nodes/AttackOneShot/position = Vector2(280, 240)
+node_connections = [&"output", 0, &"AttackOneShot", &"IdleRunBlend", 0, &"Idle", &"IdleRunBlend", 1, &"Walk", &"AttackOneShot", 0, &"IdleRunBlend", &"AttackOneShot", 1, &"Attack"]
 
 [node name="Enemy" instance=ExtResource("1_vfftn")]
 transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, 0, 0, 0)
@@ -395,7 +384,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="PlantModel" index="2"]
-tree_root = SubResource("AnimationNodeStateMachine_vfftn")
+tree_root = SubResource("AnimationNodeBlendTree_yt4d4")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/Attack = false
-parameters/conditions/Walk = false
+parameters/IdleRunBlend/blend_amount = 1.0
+parameters/AttackOneShot/active = false
+parameters/AttackOneShot/internal_active = false
+parameters/AttackOneShot/request = 0
