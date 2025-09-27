@@ -28,7 +28,9 @@ func _process(delta: float) -> void:
 func follow_player(delta):
 	if not player:
 		return
-		
+
 	var target_pos = player.global_position + Vector3(0, height, offset)
 	global_position = global_position.lerp(target_pos, follow_speed * delta)
-	look_at(player.global_position, Vector3.FORWARD)
+
+	rotation.y = 0
+	rotation.z = 0  # Optional: keeps camera fixed at its initial rotation
