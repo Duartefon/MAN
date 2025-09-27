@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cdybq1vph4u02"]
 
-[ext_resource type="Script" uid="uid://cxy3rwsl1kl1v" path="res://scenes_and_scripts/cameraFollow.gd" id="2_vho74"]
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
+[ext_resource type="Script" uid="uid://dagob3ijdgnaf" path="res://scenes_and_scripts/camera.gd" id="3_xeb76"]
 [ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="3_xfcms"]
 [ext_resource type="PackedScene" uid="uid://dag3vpw5g0mp" path="res://scenes_and_scripts/enemy.tscn" id="4_xeb76"]
 
@@ -61,14 +61,11 @@ h_accelerate = 9
 h_desaccelerate = 9
 fall_acceleration = 76
 
-[node name="BasicHud" parent="." instance=ExtResource("3_xfcms")]
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5046783, 0.8633075, 0, -0.8633075, 0.5046783, 0, 20.529016, 10.924484)
-script = ExtResource("2_vho74")
-player = NodePath("../Player")
-distance = 10.0
-height = 30.0
+transform = Transform3D(1, 0, 0, 0, 0.39366922, 0.9192522, 0, -0.9192522, 0.39366922, -3.3798032, 28.569004, 5.6789207)
+script = ExtResource("3_xeb76")
+
+[node name="BasicHud" parent="." instance=ExtResource("3_xfcms")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_xeb76")

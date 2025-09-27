@@ -94,23 +94,19 @@ func update_animations(run_val):
 
 	
 	
-func _look_at_crosshair() -> void:
-	var mouse_position = get_viewport().get_mouse_position()
-	var ray_origin = camera.project_ray_origin(mouse_position)
-	var ray_target = ray_origin + camera.project_ray_normal(mouse_position) * 100
-	var params = PhysicsRayQueryParameters3D.new()
-	
-	params.from = ray_origin
-	params.to = ray_target
-	
+func _look_at_crosshair():
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_dir = ray_origin + camera.project_ray_normal(mouse_pos) * 500
+	var ray_query = PhysicsRayQueryParameters3D.create(ray_origin, ray_dir)
 	var space_state = get_world_3d().direct_space_state
-	var intersection = space_state.intersect_ray(params)
-	 
-	if intersection:
-		 
-		var world_position = intersection.position
-		var look_at_me = Vector3(world_position.x, position.y, world_position.z )
-		look_at(look_at_me, Vector3.UP)
+	
+	ray_query.collide_with_bodies = true
+	
+	var ray_result = space_state.intersect_ray(ray_query)
+	
+	if !ray_result.is_empty():
+		look_at(ray_result.position)
 		 
 func get_ammo():
 	return gun_script.get_ammo()
