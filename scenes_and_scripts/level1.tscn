@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdybq1vph4u02"]
+[gd_scene load_steps=9 format=3 uid="uid://cdybq1vph4u02"]
 
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
 [ext_resource type="Script" uid="uid://dagob3ijdgnaf" path="res://scenes_and_scripts/camera.gd" id="3_xeb76"]
 [ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="3_xfcms"]
-[ext_resource type="PackedScene" uid="uid://b1q8jqjjse0ao" path="res://scenes_and_scripts/enemy/enemy_plant.tscn" id="5_5mqiu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vho74"]
 sky_top_color = Color(0.05119122, 0.50481564, 0.57051575, 1)
@@ -39,15 +38,13 @@ shadow_enabled = true
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("5_5mqiu")]
-transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, 0.23832703, 0, -14.472421)
-
 [node name="Player" parent="." instance=ExtResource("2_xfcms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -0.23128223)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.3083031, 0.9512882, 0, -0.9512882, 0.3083031, -3.3798032, 28.569004, 5.28319)
 script = ExtResource("3_xeb76")
+shake_strength = 1.0
 
 [node name="BasicHud" parent="." instance=ExtResource("3_xfcms")]
 

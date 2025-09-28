@@ -1,4 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://cu8bbo5sb0rs3"]
+[gd_scene load_steps=21 format=3 uid="uid://cu8bbo5sb0rs3"]
+
+[ext_resource type="Script" uid="uid://d2dxdr64iki7u" path="res://scenes_and_scripts/particle_effects/play_effect.gd" id="1_e3sae"]
 
 [sub_resource type="Curve" id="Curve_bkt0l"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6969697, 1), 0.0, 0.0, 0, 0, Vector2(0.98484856, 0), 0.0, 0.0, 0, 0]
@@ -99,12 +101,15 @@ scale_curve = SubResource("CurveTexture_3xpld")
 color = Color(0.28627452, 0.2784314, 0.16862746, 1)
 alpha_curve = SubResource("CurveTexture_tkb85")
 
-[node name="Explosion" type="Node3D"]
+[node name="Explosion" type="Node3D" node_paths=PackedStringArray("particle_systems")]
+script = ExtResource("1_e3sae")
+particle_systems = [NodePath("Debris"), NodePath("Fire"), NodePath("Smoke")]
 
 [node name="Debris" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 24
 lifetime = 0.5
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_tkb85")
@@ -113,14 +118,17 @@ draw_pass_1 = SubResource("CylinderMesh_3xpld")
 [node name="Fire" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 12
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_fwk2l")
 draw_pass_1 = SubResource("SphereMesh_4uty2")
 
 [node name="Smoke" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 12
 lifetime = 2.0
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_p1pus")

@@ -13,7 +13,7 @@ class_name Gun
 @export var gun_data: GunData
 enum GunType {PROJECTILE, HITSCAN}
 
-const BULLET_SPEED:float = 50
+const BULLET_SPEED:float = 10
 const BULLET = preload("res://scenes_and_scripts/gun_scenes/bullet.tscn")
 # se tiver tempo 90%  destas variaveis deixam de existir neste script e passa-se a usar diretamente o gun_data.variavel 
 var bullet_damage:float = 50 
@@ -61,14 +61,14 @@ func _on_fire_rate_timeout():
 
 func _on_shoot() -> void:
 	if shoot_type == GunType.PROJECTILE:
-		var bullet_instance:BulletData = BULLET.instantiate()
+		var bullet_instance:Bullet = BULLET.instantiate()
 		bullet_instance.set_damage(bullet_damage)
 		bullet_instance.position = ray_cast_3d.global_position
  
 		var node_root := get_tree().get_root().get_children()[0]
 		node_root.add_child(bullet_instance)
  		
-		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
+		bullet_instance.bullet_body.apply_impulse(global_transform.basis.z * BULLET_SPEED)
 		muzzle_flash.restart() 
 	
 func _on_reload() -> void:
