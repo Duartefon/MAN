@@ -27,28 +27,26 @@ height = 0.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_a4ia1"]
 radius = 0.27087316
 
-[node name="Bullet" type="Node3D"]
-script = ExtResource("1_vfbmy")
-
-[node name="BulletBody" type="RigidBody3D" parent="." groups=["Bullets"]]
+[node name="Bullet" type="RigidBody3D"]
 collision_layer = 7
 collision_mask = 7
 gravity_scale = 0.0
+script = ExtResource("1_vfbmy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BulletBody"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 cast_shadow = 0
 mesh = SubResource("SphereMesh_r2dv2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BulletBody"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_a4ia1")
 
-[node name="LifeTime" type="Timer" parent="BulletBody"]
+[node name="LifeTime" type="Timer" parent="."]
 
-[node name="Area3D" type="Area3D" parent="BulletBody"]
+[node name="Area3D" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BulletBody/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_a4ia1")
 
 [node name="Explosion" parent="." instance=ExtResource("2_a4ia1")]
 
-[connection signal="body_entered" from="BulletBody/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

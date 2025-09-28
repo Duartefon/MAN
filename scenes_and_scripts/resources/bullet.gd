@@ -1,9 +1,9 @@
 extends Node3D
 class_name Bullet
 
-@onready var life_timer: Timer = $BulletBody/LifeTime
+@onready var life_timer: Timer = $LifeTime
 @onready var explosion: ParticleSystemManager = $Explosion
-@onready var bullet_body: RigidBody3D = $BulletBody
+ 
 
 
 var damage:float = 0
@@ -30,10 +30,19 @@ func _on_life_timeout():
 #compliquei uma beca mas funciona
 func _on_area_3d_body_entered(body: Node3D) -> void:
  
-	if body != bullet_body:
-		explosion.global_position = bullet_body.global_position
-		explosion.play()	
-		bullet_body.queue_free()
+	if body != self:
+		if body.is_in_group("Enemy"):
+			body.apply_damage(damage)
+			
+		else:
+			explosion.global_position = global_position
+			explosion.reparent(root_level)
+			explosion.play()
+
+		queue_free()
+
+		 
+			
 		
 		
 		 
