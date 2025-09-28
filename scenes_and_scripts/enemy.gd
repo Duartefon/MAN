@@ -91,7 +91,7 @@ func start_attack():
 	await get_tree().create_timer(attack_duration).timeout
 	
 	attack_in_progress = false
-	#hit_player()
+ 
 	curr_anim = IDLE
 
 func handle_anim(delta: float):

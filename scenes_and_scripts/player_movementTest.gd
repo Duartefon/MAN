@@ -9,7 +9,7 @@ extends CharacterBody3D
 @export var speed = 25
 @export var h_accelerate = 50
 @export var h_desaccelerate = 50
-
+@export var blood_ps:PackedScene
 var target_velocity = Vector3.ZERO
 var horizontal_velocity = Vector3.ZERO
  
@@ -90,6 +90,17 @@ func _process(delta: float) -> void:
 func hit(damage:float, dir:Vector3):
 	print("HP", hp)
 	hp -= damage
+ 
+	var blood_instance:Node3D = blood_ps.instantiate()
+	
+	#get_tree().root.get_children()[1].add_child(blood_instance)
+	add_child(blood_instance)
+	 
+	blood_instance.position += dir
+	blood_instance.look_at( dir + global_position )
+	blood_instance.play()
+	
+ 
 	SignalBus.update_player_health.emit(hp,100)
 	
 func get_hp():

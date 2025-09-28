@@ -16,9 +16,9 @@ point_count = 2
 curve = SubResource("Curve_1alr5")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_suhpt"]
-spread = 35.0
-initial_velocity_min = 4.0
-initial_velocity_max = 6.0
+spread = 50.0
+initial_velocity_min = 5.0
+initial_velocity_max = 9.0
 linear_accel_min = 3.9999976
 linear_accel_max = 3.9999976
 scale_max = 5.0
@@ -56,20 +56,24 @@ script = ExtResource("1_oj8uh")
 particle_systems = [NodePath("Blood"), NodePath("BloodSpot")]
 
 [node name="Blood" type="GPUParticles3D" parent="."]
-transform = Transform3D(-0.035213504, 0, 0.9993798, 0, 1, 0, -0.9993798, 0, -0.035213504, 0, 0, 0)
+transform = Transform3D(-0.035213504, 0, 0.9993798, 0, 1, 0, -0.9993798, 0, -0.035213504, 0, 5.6684055, 0)
 material_override = SubResource("ShaderMaterial_suhpt")
+cast_shadow = 0
 emitting = false
 amount = 150
 sub_emitter = NodePath("../BloodSpot")
 one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_suhpt")
 draw_pass_1 = SubResource("QuadMesh_oj8uh")
 
 [node name="BloodSpot" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.825706, -1.3507309, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.825706, 1.6124325, 0)
 cast_shadow = 0
 emitting = false
 amount = 150
-lifetime = 320.0
+lifetime = 4.0
+explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_1rf4b")
 draw_pass_1 = SubResource("QuadMesh_suhpt")

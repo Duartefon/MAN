@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl1dtjqvty7st"]
+[gd_scene load_steps=6 format=3 uid="uid://dl1dtjqvty7st"]
 
 [ext_resource type="Script" uid="uid://bc2nuuf4sbc07" path="res://scenes_and_scripts/player_movementTest.gd" id="1_e8vqu"]
 [ext_resource type="PackedScene" uid="uid://dqxboitl7bqhf" path="res://scenes_and_scripts/man.tscn" id="2_e8vqu"]
+[ext_resource type="PackedScene" uid="uid://dyd27ms5jujck" path="res://scenes_and_scripts/particle_effects/blood.tscn" id="2_f8gj8"]
 [ext_resource type="AudioStream" uid="uid://bwvoe21i58por" path="res://assets/sound/clean-revolver-reload-6889.mp3" id="3_44uky"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e8vqu"]
@@ -10,6 +11,7 @@ height = 7.264
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_e8vqu")
+blood_ps = ExtResource("2_f8gj8")
 
 [node name="Man" parent="." instance=ExtResource("2_e8vqu")]
 
