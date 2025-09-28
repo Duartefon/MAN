@@ -9,9 +9,9 @@ extends Node3D
 # --- ONREADY NODES ---
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
-@onready var infobox_title: Label = $UI/Infobox/MarginContainer/VBoxContainer/title
-@onready var infobox_desc: Label = $UI/Infobox/MarginContainer/VBoxContainer/description
-@onready var confirm_box: PanelContainer = $UI/confirm_box
+@onready var infobox_title: Label = $UI/Infobox/MarginContainer/VBoxContainer/Title
+@onready var infobox_desc: Label = $UI/Infobox/MarginContainer/VBoxContainer/Description
+@onready var confirm_box: PanelContainer = $UI/ConfirmBox
 
 # --- STATE VARIABLES ---
 var current_index: int = 0 # Index of the selected menu point set to first point
@@ -20,7 +20,7 @@ var is_animating: bool = false # Prevents input spam during animation
 func _ready() -> void:
 	confirm_box.hide() # Hide the confirmation box at the start
 	select_point(current_index, false) # Aligns the camera pivot to the first point
-
+	
 func _input(event: InputEvent) -> void:
 	# Don't allow input if an animation is playing
 	if is_animating:
@@ -41,7 +41,7 @@ func _input(event: InputEvent) -> void:
 	# Show confirmation box when the player presses the selection point
 	if event.is_action_pressed("ui_accept"):
 		confirm_box.show()
-
+		
 func select_point(index: int, animate: bool = true) -> void:
 	# Set the current index and obtain the associated point
 	current_index = index
@@ -79,17 +79,17 @@ func _update_infobox(point: Marker3D) -> void:
 	 # Read metadata keys "title" and "description" from the point and fill in UI labels
 	infobox_title.text = point.get_meta("title", "No Title")
 	infobox_desc.text = point.get_meta("description", "No description available.")
-
+	
 func _on_yes_button_pressed() -> void:
 	# When confirmed, get the scene path from the currently selected point's metadata.
-	var scene_path = menu_points[current_index].packed_scene
+	var scene_path = menu_points[current_index].get_meta("scene_path")
 	if not scene_path or scene_path.is_empty():
 		print("ERROR: No scene_path defined for this menu point!")
 		return
 	
-	# Load the new scene
+	 #Load the new scene
 	get_tree().change_scene_to_file(scene_path)
-
+	
 func _on_no_button_pressed() -> void:
 	# Hide the confirmation box when the player cancels
 	confirm_box.hide()
