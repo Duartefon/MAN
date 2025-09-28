@@ -21,7 +21,7 @@ SignalBus="*res://scenes_and_scripts/signal_bus.gd"
 
 [global_group]
 
-Bullets=""
+Enemy=""
 
 [input]
 

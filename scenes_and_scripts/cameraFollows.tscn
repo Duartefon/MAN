@@ -33,6 +33,5 @@ mesh = SubResource("PlaneMesh_801x2")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.071997315, 0.8418128, -0.5349464, -0.019938752, 0.5374458, 0.8430626, 0.99720556, -0.05003207, 0.055479355, -1.3316715, 3.204712, -0.019325085)
 script = ExtResource("2_e50i7")
-player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_b1fvj")]

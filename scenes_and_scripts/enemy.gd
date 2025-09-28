@@ -9,7 +9,7 @@ const DAMAGE: float = 25
 const ATTACK_ANIMATION_OFFSET: float = 0.35#when the enemy actually attacks
 var distance_to_stop_following: float = 9
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
+var hp = 100
 # ANIM
 enum {IDLE, WALK, ATTACK}
 var curr_anim = IDLE
@@ -115,3 +115,8 @@ func hit_player():
 
 func target_in_attack_range() -> bool:
 	return player and global_position.distance_to(player.global_position) < ATTACK_RANGE
+
+func apply_damage(damage):
+	hp -= damage
+	if hp <= 0:
+		queue_free()

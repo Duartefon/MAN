@@ -61,7 +61,7 @@ func _on_fire_rate_timeout():
 
 func _on_shoot() -> void:
 	if shoot_type == GunType.PROJECTILE:
-		var bullet_instance:BulletData = BULLET.instantiate()
+		var bullet_instance:Bullet = BULLET.instantiate()
 		bullet_instance.set_damage(bullet_damage)
 		bullet_instance.position = ray_cast_3d.global_position
  

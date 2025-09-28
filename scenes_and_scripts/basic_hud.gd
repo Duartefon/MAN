@@ -4,7 +4,7 @@ extends Node
 @onready var ammo_counter: RichTextLabel = $Control/Ammo_Counter/Ammo
 @onready var facecam = $Control/Control/healthy
 
-var player_health: float
+#var player_health: float
 var player: CharacterBody3D
 const CROSSHAIR = preload("uid://dmh6meew0pmd5")
 const AMMO_COUNTER = preload("uid://beuu87rbc6a1r")
@@ -19,12 +19,12 @@ func _ready() -> void:
  
 	
 		
-func update_facecam():
+func update_facecam(player_health):
 	if player_health >= 100:
 		facecam.play("healthy");
-	elif 50 < player_health  and player_health<100:
+	elif player_health >= 50  and player_health<99:
 		facecam.play("damaged");
-	else:
+	elif player_health < 49:
 		facecam.play("super_damaged");
 			
 	
@@ -35,6 +35,6 @@ func _on_update_weapon_ammo(current_magazine_ammo, total_ammo):
 func _on_update_player_health(current_health:float, total_health:float):
 	#print("%d %d" % [current_health, total_health])
 	health.text = "%d/%d" % [current_health, total_health]
-	update_facecam()
+	update_facecam(current_health)
 	
  

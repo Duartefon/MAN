@@ -360,22 +360,16 @@ nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_yt4d4")
 nodes/AttackOneShot/position = Vector2(280, 240)
 node_connections = [&"output", 0, &"AttackOneShot", &"IdleRunBlend", 0, &"Idle", &"IdleRunBlend", 1, &"Walk", &"AttackOneShot", 0, &"IdleRunBlend", &"AttackOneShot", 1, &"Attack"]
 
-[node name="Enemy" instance=ExtResource("1_vfftn")]
+[node name="Enemy" groups=["Enemy"] instance=ExtResource("1_vfftn")]
 transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, 0, 0, 0)
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1745158, 0)
+transform = Transform3D(0.9999991, 0, 0, 0, 0.9999991, 0, 0, 0, 0.9999991, 0, 0.9629483, 0)
 
-[node name="Hurtbox" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023816401, 0)
-
-[node name="CollisionShape3D" parent="Hurtbox" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9279328, 0)
-
-[node name="NavigationAgent3D" parent="." index="2"]
+[node name="NavigationAgent3D" parent="." index="1"]
 debug_enabled = false
 
-[node name="PlantModel" parent="." index="3" instance=ExtResource("2_f563t")]
+[node name="PlantModel" parent="." index="2" instance=ExtResource("2_f563t")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlantModel" index="1"]
