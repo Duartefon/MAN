@@ -61,6 +61,9 @@ func _handle_movement(delta):
 	velocity.x = move_toward(velocity.x, target_velocity.x, accel * delta)
 	velocity.z = move_toward(velocity.z, target_velocity.z, accel * delta)
 	
+	if not is_on_floor(): # If in the air, fall towards the floor.
+		velocity.y -= accel * delta
+	
 	
 func _look_at_crosshair():
 	var mouse_pos = get_viewport().get_mouse_position()

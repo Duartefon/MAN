@@ -28,10 +28,10 @@ func _input(event: InputEvent) -> void:
 		
 	var new_index := current_index
 	# Move selection point right
-	if event.is_action_pressed("ui_right"):
+	if event.is_action_pressed("move_right"):
 		new_index = (current_index + 1) % menu_points.size()
 	# Move selection point left
-	elif event.is_action_pressed("ui_left"):
+	elif event.is_action_pressed("move_left"):
 		new_index = (current_index - 1 + menu_points.size()) % menu_points.size()
 	
 	# If index changed, update selection point
