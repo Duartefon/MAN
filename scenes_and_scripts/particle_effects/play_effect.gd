@@ -3,6 +3,7 @@ class_name ParticleSystemManager
 
 @export var particle_systems:Array[GPUParticles3D]
 var await_ps_counter:int
+ 
 func play():
 	
 	for ps in particle_systems:
