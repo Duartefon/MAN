@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1q8jqjjse0ao"]
+[gd_scene load_steps=14 format=3 uid="uid://b1q8jqjjse0ao"]
 
 [ext_resource type="PackedScene" uid="uid://dag3vpw5g0mp" path="res://scenes_and_scripts/enemy.tscn" id="1_vfftn"]
 [ext_resource type="PackedScene" uid="uid://b2slp5aj2ews2" path="res://scenes_and_scripts/enemy/plant_model.tscn" id="2_f563t"]
+[ext_resource type="PackedScene" uid="uid://7hbiv8w54je4" path="res://scenes_and_scripts/damage_indicator.tscn" id="3_f563t"]
 
 [sub_resource type="Animation" id="Animation_0sqje"]
 resource_name = "Attack"
@@ -384,3 +385,6 @@ parameters/IdleRunBlend/blend_amount = 1.0
 parameters/AttackOneShot/active = false
 parameters/AttackOneShot/internal_active = false
 parameters/AttackOneShot/request = 0
+
+[node name="DamageIndicator" parent="." index="3" instance=ExtResource("3_f563t")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 2.46453, 0)

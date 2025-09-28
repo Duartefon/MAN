@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var man: Node3D = $man
 @onready var ver_direcaodo_player: CSGBox3D = $verDirecaodoPlayer
 @onready var anim_tree = $Man/AnimationPlayer/AnimationTree
+@onready var damage_indicator: Node3D = $DamageIndicator
 
 @export var blend_speed = 10
 @export var speed = 25
@@ -100,7 +101,8 @@ func hit(damage:float, dir:Vector3):
 	blood_instance.look_at( dir + global_position )
 	blood_instance.play()
 	
- 
+	#SignalBus.display_number(damage, damage_indicator.position, false)
+	$DamageIndicator.create_indicator_label(damage)
 	SignalBus.update_player_health.emit(hp,100)
 	
 func get_hp():

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://chcgbgfb07e7b"]
+
+[ext_resource type="Script" uid="uid://cfn3y5wksug47" path="res://scenes_and_scripts/particle_effects/damage_indicator_label.gd" id="1_6nny6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bd1ds"]
+viewport_path = NodePath("SubViewport")
+
+[node name="IndicatorLabel" type="Node3D"]
+script = ExtResource("1_6nny6")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3656969, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_bd1ds")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Label" type="Label" parent="SubViewport"]
+custom_minimum_size = Vector2(150, 70)
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 150
+text = "50
+"
+horizontal_alignment = 1

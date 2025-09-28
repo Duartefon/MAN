@@ -116,7 +116,12 @@ func hit_player():
 func target_in_attack_range() -> bool:
 	return player and global_position.distance_to(player.global_position) < ATTACK_RANGE
 
+#TODO: fazer o damage indicator mais funcional e n depender do inimigo estar vivo
 func apply_damage(damage):
 	hp -= damage
+
+	
 	if hp <= 0:
 		queue_free()
+	else: 
+		$DamageIndicator.create_indicator_label(damage)
