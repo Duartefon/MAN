@@ -65,9 +65,9 @@ func _on_shoot() -> void:
 		bullet_instance.set_damage(bullet_damage)
 		bullet_instance.position = ray_cast_3d.global_position
  
-		var node_root := get_tree().get_root().get_children()[0]
+		var node_root := get_tree().get_root().get_children()[1]
 		node_root.add_child(bullet_instance)
- 		
+ 		 
 		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
 		muzzle_flash.restart() 
 	

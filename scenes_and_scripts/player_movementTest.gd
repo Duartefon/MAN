@@ -94,7 +94,7 @@ func hit(damage:float, dir:Vector3):
  
 	var blood_instance:Node3D = blood_ps.instantiate()
 	
-	#get_tree().root.get_children()[1].add_child(blood_instance)
+ 
 	add_child(blood_instance)
 	 
 	blood_instance.position += dir

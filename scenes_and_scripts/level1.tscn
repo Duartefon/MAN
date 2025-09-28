@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdybq1vph4u02"]
+[gd_scene load_steps=11 format=3 uid="uid://cdybq1vph4u02"]
 
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
 [ext_resource type="Script" uid="uid://dagob3ijdgnaf" path="res://scenes_and_scripts/camera.gd" id="3_xeb76"]
 [ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="3_xfcms"]
 [ext_resource type="PackedScene" uid="uid://b1q8jqjjse0ao" path="res://scenes_and_scripts/enemy/enemy_plant.tscn" id="5_5mqiu"]
+[ext_resource type="PackedScene" uid="uid://b7sercln25wqy" path="res://scenes_and_scripts/spawner.tscn" id="5_v5daa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vho74"]
 sky_top_color = Color(0.05119122, 0.50481564, 0.57051575, 1)
@@ -109,3 +110,7 @@ transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, -0.92409945, 1.24847
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 16.198)
 size = Vector3(172.17, 1.4, 88.34)
+
+[node name="Spawner" parent="." instance=ExtResource("5_v5daa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.412907, 0, -16.175686)
+enemy_type_array = Array[PackedScene]([ExtResource("5_5mqiu")])

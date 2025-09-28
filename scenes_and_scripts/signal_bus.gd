@@ -5,6 +5,8 @@ signal update_weapon_ammo(current_magazine:int, total_ammo:int)
 	
 signal update_player_health(current_health:float, total_health:float)
 
+
+  #spaghetti estar aqui mas fds
 # em oop isto ia parar a outro script mas fds 
 #func display_number(value:int, position: Vector3, is_critical: bool = false):
 	#var number = Label.new()
