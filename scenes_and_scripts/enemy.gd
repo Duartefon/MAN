@@ -118,8 +118,9 @@ func target_in_attack_range() -> bool:
 
 #TODO: fazer o damage indicator mais funcional e n depender do inimigo estar vivo
 func apply_damage(damage):
+	anim_tree["parameters/HitAdd/add_amount"] = 0.0
 	hp -= damage
-
+	anim_tree["parameters/HitAdd/add_amount"] = 1.0
 	
 	if hp <= 0:
 		queue_free()
