@@ -2,19 +2,21 @@ extends Node3D
 class_name Gun
 
 @export var shoot_type:GunType
-@onready var ray_cast_3d: RayCast3D = $glock/RayCast3D
+ 
 @onready var camera: Camera3D = $"../../../../../../../Camera3D"
 @onready var gun_barrel: Node3D = $glock/GunBarrel
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var muzzle_flash: GPUParticles3D = $glock/MuzzleFlash
+@onready var current_weapon: Node = $CurrentWeapon
+@onready var projectile_container: Node3D = $"../../../../../../../ProjectileContainer"
 
 @export var gun_data: GunData
 enum GunType {PROJECTILE, HITSCAN}
 
 const BULLET_SPEED:float = 50
-const BULLET = preload("res://scenes_and_scripts/gun_scenes/bullet.tscn")
+const BULLET = preload("uid://k3w57e61h4bq")
 # se tiver tempo 90%  destas variaveis deixam de existir neste script e passa-se a usar diretamente o gun_data.variavel 
 var bullet_damage:float = 50 
 var magazine_ammo:int = 10
@@ -37,7 +39,7 @@ func _ready() -> void:
 	fire_rate = gun_data.fire_rate
 	reload_duration = gun_data.reload_duration
 	add_child(gun_data.MODEL.instantiate())
-	muzzle_flash.emitting = false
+ 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire_gun") and current_magazine_ammo > 0 and can_shoot and can_reload:
 		_on_shoot()
@@ -63,14 +65,12 @@ func _on_shoot() -> void:
 	if shoot_type == GunType.PROJECTILE:
 		var bullet_instance:Bullet = BULLET.instantiate()
 		bullet_instance.set_damage(bullet_damage)
-		bullet_instance.position = ray_cast_3d.global_position
- 
-		var node_root := get_tree().get_root().get_children()[1]
-		node_root.add_child(bullet_instance)
- 		 
+		bullet_instance.position = 	current_weapon.get_child(0).get_raycast().global_position
 		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
-		muzzle_flash.restart() 
-	
+		
+		current_weapon.get_child(0).play() 
+		projectile_container.add_child(bullet_instance)
+		
 func _on_reload() -> void:
 	var ammo_to_reload = magazine_ammo - current_magazine_ammo 
 	if total_ammo - ammo_to_reload >= 0 and can_reload:

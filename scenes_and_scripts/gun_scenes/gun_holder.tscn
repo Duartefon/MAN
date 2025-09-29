@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckv17j7mpqiqd"]
+
+[ext_resource type="Script" uid="uid://06cw7c7jcqmo" path="res://scenes_and_scripts/gun_scenes/gun.gd" id="1_b0at6"]
+[ext_resource type="Resource" uid="uid://c11mnsx2g0sks" path="res://assets/guns/glock_data.tres" id="2_vuj24"]
+[ext_resource type="PackedScene" uid="uid://dtmqe610tch8s" path="res://scenes_and_scripts/gun_scenes/blaster_model.tscn" id="3_48n4o"]
+
+[node name="GunHolder" type="Node3D"]
+script = ExtResource("1_b0at6")
+gun_data = ExtResource("2_vuj24")
+
+[node name="FireRateTimer" type="Timer" parent="."]
+
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[node name="CurrentWeapon" type="Node3D" parent="."]
+
+[node name="blaster" parent="CurrentWeapon" instance=ExtResource("3_48n4o")]
+
+[node name="Inventory" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

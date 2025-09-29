@@ -138,6 +138,9 @@ bones/212/rotation = Quaternion(0.44648197, 0.5767847, 0.5411535, -0.41848102)
 [node name="BoneAttachment3D" parent="Man/char_grp/rig/Skeleton3D" index="2"]
 transform = Transform3D(-0.8422995, 0.5053757, -0.18742165, 0.019618243, 0.3762286, 0.9263192, 0.53865266, 0.77656126, -0.3268118, -1.7551532, 3.4549744, 1.89695)
 
+[node name="GunHolder" parent="Man/char_grp/rig/Skeleton3D/BoneAttachment3D" index="0"]
+shoot_type = 0
+
 [node name="AnimationTree" parent="Man/AnimationPlayer" index="0"]
 active = false
 
