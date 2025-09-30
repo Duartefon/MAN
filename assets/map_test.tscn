@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ky2p8o6sh016"]
+[gd_scene load_steps=18 format=3 uid="uid://ky2p8o6sh016"]
 
 [ext_resource type="PackedScene" uid="uid://71uxwy5j72wf" path="res://assets/city_models/GLB format/road-asphalt-corner.glb" id="1_kx2lo"]
 [ext_resource type="PackedScene" uid="uid://cntut2r834wnl" path="res://assets/city_models/GLB format/road-asphalt-straight.glb" id="2_i51bd"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cibi6t4q1n3vb" path="res://assets/city_models/GLB format/wall-a.glb" id="9_5quin"]
 [ext_resource type="PackedScene" uid="uid://c8jic8wt8q70m" path="res://assets/city_models/GLB format/wall-a-open.glb" id="9_c0n23"]
 [ext_resource type="PackedScene" uid="uid://dginei6dr0qp4" path="res://assets/city_models/GLB format/wall-a-window.glb" id="11_cka05"]
+[ext_resource type="PackedScene" uid="uid://bid3ohcuc1bx3" path="res://assets/city_models/GLB format/grass.glb" id="12_c0n23"]
+[ext_resource type="PackedScene" uid="uid://dx345iyn7tpfa" path="res://assets/city_models/GLB format/door-type-b.glb" id="12_cka05"]
+[ext_resource type="PackedScene" uid="uid://dctpdyotir2tg" path="res://assets/city_models/GLB format/grass-corner.glb" id="13_fljtc"]
+[ext_resource type="Script" uid="uid://dagob3ijdgnaf" path="res://scenes_and_scripts/camera.gd" id="13_qv7x1"]
+[ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="14_44msl"]
+[ext_resource type="PackedScene" uid="uid://dw5ckqgn4u6ug" path="res://assets/city_models/GLB format/grass-hill.glb" id="14_c2le4"]
 
 [node name="MapTest" type="Node3D"]
 
@@ -18,20 +24,59 @@
 
 [node name="road-asphalt-corner2" parent="map" instance=ExtResource("1_kx2lo")]
 
+[node name="road-asphalt-corner2" parent="map/road-asphalt-corner2" instance=ExtResource("1_kx2lo")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.99881, 0, 0)
+
+[node name="road-asphalt-straight2" parent="map/road-asphalt-corner2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7.49881, 0, 0)
+
+[node name="road-asphalt-straight2" parent="map/road-asphalt-corner2/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="road-asphalt-straight4" parent="map/road-asphalt-corner2/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 0, -1.4999999)
+
+[node name="road-asphalt-straight6" parent="map/road-asphalt-corner2/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 0, -3.5)
+
+[node name="road-asphalt-straight3" parent="map/road-asphalt-corner2/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 0, -2.5)
+
 [node name="road-asphalt-straight2" parent="map" instance=ExtResource("2_i51bd")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 1.5)
 
 [node name="road-asphalt-straight2" parent="map/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
+[node name="road-asphalt-straight2" parent="map/road-asphalt-straight2/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="road-asphalt-straight4" parent="map/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 0, -1.4999999)
+
+[node name="road-asphalt-straight6" parent="map/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 0, -3.5)
+
+[node name="road-asphalt-straight5" parent="map/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 0, -4.5)
+
+[node name="road-asphalt-straight6" parent="map/road-asphalt-straight2/road-asphalt-straight5" instance=ExtResource("2_i51bd")]
+transform = Transform3D(0.99999976, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 0.99999976, -1, 0, 5.6425995e-07)
+
 [node name="road-asphalt-straight3" parent="map/road-asphalt-straight2" instance=ExtResource("2_i51bd")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 0, -2.5)
 
-[node name="road-asphalt-straight2" parent="map/road-asphalt-straight2/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+[node name="wall-a4" parent="map" instance=ExtResource("9_5quin")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 0.05, -0.5)
 
 [node name="wall-a-flat-window2" parent="map" instance=ExtResource("3_5quin")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0.05, 2.5)
+
+[node name="wall-a-flat-window2" parent="map/wall-a-flat-window2" instance=ExtResource("3_5quin")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.5, 0, -0.5)
+
+[node name="wall-a3" parent="map/wall-a-flat-window2" instance=ExtResource("9_5quin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -0.5)
 
 [node name="wall-a-garage2" parent="map" instance=ExtResource("4_cka05")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 0.05, 1.5)
@@ -45,10 +90,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.05, 1.5)
 [node name="road-asphalt-pavement4" parent="map" instance=ExtResource("5_rsh1v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.05, 2.5)
 
-[node name="road-asphalt-pavement5" parent="map/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+[node name="road-asphalt-pavement6" parent="map/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 0, 3)
+
+[node name="road-asphalt-pavement6" parent="map/road-asphalt-pavement4/road-asphalt-pavement6" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0000005, 0, 0)
+
+[node name="road-asphalt-pavement7" parent="map/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, -1)
+
+[node name="road-asphalt-pavement5" parent="map/road-asphalt-pavement4/road-asphalt-pavement7" instance=ExtResource("5_rsh1v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
-[node name="road-asphalt-pavement4" parent="map/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+[node name="road-asphalt-pavement5" parent="map/road-asphalt-pavement4/road-asphalt-pavement7/road-asphalt-pavement5" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0000002, 0, 0)
+
+[node name="road-asphalt-pavement4" parent="map/road-asphalt-pavement4/road-asphalt-pavement7" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="road-asphalt-pavement5" parent="map/road-asphalt-pavement4/road-asphalt-pavement7/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="road-asphalt-pavement4" parent="map/road-asphalt-pavement4/road-asphalt-pavement7/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="road-asphalt-pavement5" parent="map/road-asphalt-pavement4/road-asphalt-pavement7/road-asphalt-pavement4/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+
+[node name="road-asphalt-pavement4" parent="map/road-asphalt-pavement4/road-asphalt-pavement7/road-asphalt-pavement4/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="road-asphalt-pavement4" parent="map/road-asphalt-pavement4/road-asphalt-pavement7/road-asphalt-pavement4/road-asphalt-pavement4/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="road-asphalt-pavement4" parent="map/road-asphalt-pavement4/road-asphalt-pavement7/road-asphalt-pavement4/road-asphalt-pavement4/road-asphalt-pavement4/road-asphalt-pavement4" instance=ExtResource("5_rsh1v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="road-asphalt-pavement2" parent="map" instance=ExtResource("5_rsh1v")]
@@ -56,6 +131,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.05, 1.5)
 
 [node name="tree-park-large3" parent="map" instance=ExtResource("6_qv7x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0772872, 0, 1.4242809)
+
+[node name="tree-park-large3" parent="map/tree-park-large3" instance=ExtResource("6_qv7x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8349185, 0, 0.059459925)
+
+[node name="tree-park-large2" parent="map/tree-park-large3" instance=ExtResource("6_qv7x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.799063, 0, 1.1412742)
 
 [node name="tree-park-large2" parent="map" instance=ExtResource("6_qv7x1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0414319, 0, 2.5060952)
@@ -72,8 +153,90 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.05, 0.5)
 [node name="wall-a3" parent="map" instance=ExtResource("9_5quin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.05, 2.5)
 
+[node name="wall-a-window2" parent="map" instance=ExtResource("11_cka05")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 1.05, 1.5)
+
+[node name="road-asphalt-corner3" parent="map" instance=ExtResource("1_kx2lo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, 5.9890003)
+
+[node name="road-asphalt-straight3" parent="map" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, 4.489)
+
+[node name="road-asphalt-corner2" parent="map/road-asphalt-straight3" instance=ExtResource("1_kx2lo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4999995, 0, 6.952608)
+
+[node name="road-asphalt-straight7" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.017758846, 0, 6.946743)
+
+[node name="road-asphalt-straight8" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 1.98224, 0, 6.946743)
+
+[node name="road-asphalt-straight9" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 2.98224, 0, 6.946743)
+
+[node name="road-asphalt-straight6" parent="map/road-asphalt-straight3/road-asphalt-straight9" instance=ExtResource("2_i51bd")]
+transform = Transform3D(0.99999976, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 0.99999976, -1, 0, 5.6425995e-07)
+
+[node name="road-asphalt-straight10" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.98223996, 0, 6.946743)
+
+[node name="road-asphalt-straight4" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.4999995, 0, 5.4548388)
+
+[node name="road-asphalt-straight6" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 0, 3.4548388)
+
+[node name="road-asphalt-straight5" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5000005, 0, 2.4548388)
+
+[node name="road-asphalt-straight6" parent="map/road-asphalt-straight3/road-asphalt-straight5" instance=ExtResource("2_i51bd")]
+transform = Transform3D(0.99999976, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 0.99999976, -1, 0, 5.6425995e-07)
+
+[node name="road-asphalt-straight3" parent="map/road-asphalt-straight3" instance=ExtResource("2_i51bd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.4999995, 0, 4.4548388)
+
+[node name="door-type-b2" parent="map" instance=ExtResource("12_cka05")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9788048, 0, -0.46481472)
+
+[node name="tree-park-large4" parent="map" instance=ExtResource("6_qv7x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9133124, 0, 3.7924974)
+
+[node name="tree-park-large5" parent="map" instance=ExtResource("6_qv7x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.877457, 0, 4.8743114)
+
+[node name="grass2" parent="map" instance=ExtResource("12_c0n23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.05, 1.5)
+
+[node name="grass-corner2" parent="map" instance=ExtResource("13_fljtc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.5, 0.05, 1.5)
+
+[node name="grass-corner3" parent="map" instance=ExtResource("13_fljtc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.05, 1.5)
+
+[node name="grass-hill2" parent="map" instance=ExtResource("14_c2le4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.05, 1.5)
+
+[node name="grass3" parent="map" instance=ExtResource("12_c0n23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.05, 2.5)
+
+[node name="grass-hill3" parent="map" instance=ExtResource("14_c2le4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 0.05, 2.5)
+
+[node name="grass4" parent="map" instance=ExtResource("12_c0n23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.55, 2.5)
+
+[node name="grass-hill4" parent="map" instance=ExtResource("14_c2le4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.5, 0.05, 2.5)
+
 [node name="Player" parent="." instance=ExtResource("7_44msl")]
 transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, 2.635777)
 
-[node name="wall-a-window2" parent="." instance=ExtResource("11_cka05")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 1.05, 1.5)
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.3083031, 0.9512882, 0, -0.9512882, 0.3083031, 0.021862984, 1.9836035, 3.1876383)
+script = ExtResource("13_qv7x1")
+shake_strength = 1.0
+height = 10.0
+
+[node name="BasicHud" parent="." instance=ExtResource("14_44msl")]
