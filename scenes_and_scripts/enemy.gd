@@ -4,6 +4,8 @@ class_name Enemy
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree = $PlantModel/AnimationTree
 @onready var anim_player: AnimationPlayer = $PlantModel/AnimationPlayer
+ 
+@onready var hit_sound: AudioStreamPlayer3D = $HitSound
 
 @export var body: MeshInstance3D
 @export var legs: MeshInstance3D
@@ -141,6 +143,7 @@ func target_in_attack_range() -> bool:
 
 func apply_damage(damage):
 	hp -= damage
+	hit_sound.play()
 	flash_material()
 	if hp <= 0:
 		queue_free()

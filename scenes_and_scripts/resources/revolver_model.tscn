@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cosqbdkjsijv7" path="res://scenes_and_scripts/particle_effects/MuzzleFlash.tscn" id="2_7mojy"]
 
 [node name="RevolverModel" instance=ExtResource("1_4ln4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32589722, 0)
 script = ExtResource("2_4tguy")
 
 [node name="Node" parent="." index="0"]

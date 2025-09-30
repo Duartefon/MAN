@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $"../Camera3D"
 @onready var anim_tree = $Man/AnimationPlayer/AnimationTree
 @onready var damage_indicator: Node3D = $DamageIndicator
+@onready var hit_sound: AudioStreamPlayer3D = $HitSound
 
 @export var blend_speed = 10
 @export var speed = 25
@@ -93,7 +94,7 @@ func _process(delta: float) -> void:
 func hit(damage:float, dir:Vector3):
 	print("HP", hp)
 	hp -= damage
- 
+	hit_sound.play()
 	var blood_instance:Node3D = blood_ps.instantiate()
 	
  
