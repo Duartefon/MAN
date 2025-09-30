@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dqxboitl7bqhf" path="res://scenes_and_scripts/man.tscn" id="2_e8vqu"]
 [ext_resource type="PackedScene" uid="uid://dyd27ms5jujck" path="res://scenes_and_scripts/particle_effects/blood.tscn" id="2_f8gj8"]
 [ext_resource type="AudioStream" uid="uid://bwvoe21i58por" path="res://assets/sound/clean-revolver-reload-6889.mp3" id="3_44uky"]
-[ext_resource type="AudioStream" uid="uid://q7id2mxm1txa" path="res://assets/SFX/footstep.wav" id="4_awlyc"]
 [ext_resource type="Resource" uid="uid://cjdahix0lr7ui" path="res://scenes_and_scripts/gun_scenes/blaster.tres" id="4_awlyc"]
 [ext_resource type="PackedScene" uid="uid://7hbiv8w54je4" path="res://scenes_and_scripts/damage_indicator.tscn" id="5_23chc"]
 
@@ -12,7 +11,8 @@
 radius = 1.255
 height = 7.264
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 9
 script = ExtResource("1_e8vqu")
 blood_ps = ExtResource("2_f8gj8")
 
@@ -139,20 +139,15 @@ bones/212/rotation = Quaternion(0.44648197, 0.5767847, 0.5411535, -0.41848102)
 
 [node name="BoneAttachment3D" parent="Man/char_grp/rig/Skeleton3D" index="2"]
 transform = Transform3D(-0.8422997, 0.5053754, -0.18742186, 0.019617975, 0.3762287, 0.9263192, 0.5386524, 0.7765613, -0.32681182, -1.7523139, 3.3917239, 1.835669)
-transform = Transform3D(-0.8422995, 0.5053757, -0.18742165, 0.019618243, 0.3762286, 0.9263192, 0.53865266, 0.77656126, -0.3268118, -1.7551532, 3.4549744, 1.89695)
 
 [node name="GunHolder" parent="Man/char_grp/rig/Skeleton3D/BoneAttachment3D" index="0"]
 gun_data = ExtResource("4_awlyc")
-
-[node name="AnimationTree" parent="Man/AnimationPlayer" index="0"]
-active = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9969234, 0)
 shape = SubResource("CapsuleShape3D_e8vqu")
 
 [node name="Footstep" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_awlyc")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_44uky")

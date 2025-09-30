@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 class_name Bullet
 
 @onready var life_timer: Timer = $LifeTime
@@ -6,6 +6,7 @@ class_name Bullet
  
 
 
+const COLLISION_TO_IGNORE = 5
 var damage:float = 0
 var life_time:float = 2.5
 var root_level:Node3D
@@ -29,11 +30,14 @@ func _on_life_timeout():
 
 #compliquei uma beca mas funciona
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(body)	
+ 
+	if self.is_in_group("BulletEnemy"):
+		pass#collision_layer = 
 	if body != self:
 		if body.is_in_group("Enemy"):
 			body.apply_damage(damage)
-			
+		elif body.is_in_group("Player"):
+			body.hit(damage, global_position)
 		else:
 			explosion.global_position = global_position
 			explosion.reparent(root_level)

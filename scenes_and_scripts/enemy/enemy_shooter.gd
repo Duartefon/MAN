@@ -2,13 +2,21 @@ extends Enemy
 
  
 @onready var gun: Gun = $GunHolder
-
-func hit_player():
-	print(	"shooting at the player")
-	gun.enemy_shoot( )
-
+@onready var attack_wait_timer: Timer = $AttackWaitTimer
+var can_attack:bool = false
  
-func process():
-	if !attack_in_progress:
-		look_at(player.global_position)
+	
+func ready():
+	attack_wait_timer.timeout.connect(_on_attack_wait_timeout)
+	
+func hit_player():
+	print("shooting enemy")
+	gun.enemy_shoot( )
+	
+	
+func _on_attack_wait_timeout():
+	can_attack = true
+ 
+ 
+ 
  

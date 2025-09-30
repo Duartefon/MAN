@@ -282,8 +282,7 @@ node_connections = [&"output", 0, &"AttackOneShot", &"IdleRunBlend", 0, &"Idle",
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("2_sx6r6")
 body = NodePath("PlantModel/Armature_001/Skeleton3D/Cube")
-legs = NodePath("PlantModel/Armature_001/Skeleton3D/Cylinder")
-attack_range = 20.0
+legs = NodePath("PlantModel/Armature_001/Skeleton3D/Cylindir")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9065957, 0)
@@ -299,7 +298,6 @@ gun_data = ExtResource("5_nn4i6")
 libraries = {
 &"": SubResource("AnimationLibrary_nn4i6")
 }
-autoplay = "Attack"
 
 [node name="AnimationTree" type="AnimationTree" parent="PlantModel" index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_sx6r6")
@@ -310,5 +308,7 @@ parameters/AttackOneShot/internal_active = false
 parameters/AttackOneShot/request = 0
 
 [node name="Camera3D" type="Camera3D" parent="." index="5"]
+
+[node name="AttackWaitTimer" type="Timer" parent="." index="6"]
 
 [editable path="PlantModel"]

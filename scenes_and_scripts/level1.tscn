@@ -115,6 +115,5 @@ enemies_to_spawn = 0
 [node name="ProjectileContainer" type="Node3D" parent="."]
 
 [node name="EnemyShooter" parent="." instance=ExtResource("6_v5daa")]
-
-[node name="Enemy" parent="." instance=ExtResource("5_5mqiu")]
-transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, -20.331282, 1.2483544, 20.275818)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -13.058348, 1.2123404, 27.513058)
+attack_range = 20.0

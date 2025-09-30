@@ -80,6 +80,7 @@ func enemy_shoot():#esta a faltarme algum detalhe pq o inimigo dispara ao contra
 	bullet_instance.set_damage(bullet_damage)
 	bullet_instance.position = 	current_weapon.get_child(0).get_raycast().global_position
 	bullet_instance.apply_impulse(-global_transform.basis.z * BULLET_SPEED) #
+	bullet_instance.collision_layer = 5
 	
 	current_weapon.get_child(0).play() 
 	projectile_container.add_child(bullet_instance)
