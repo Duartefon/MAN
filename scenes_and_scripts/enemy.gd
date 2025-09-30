@@ -27,6 +27,7 @@ var blend_speed: float = 10.0
 # Player reference
 var player: CharacterBody3D
 
+var delay_between_attacks = 0
 func find_player(node: Node) -> CharacterBody3D:
 	for child in node.get_children():
 		if child.name == "Player":
@@ -112,7 +113,7 @@ func update_attack(delta: float) -> void:
 	move_and_slide()
 	look_at(player.global_position, Vector3.UP)
 
-	var attack_duration = anim_player.get_animation("Attack").length
+	var attack_duration = get_attack_duration()
 	var hit_time = ATTACK_ANIMATION_OFFSET
 	
 	# Deal damage at the right moment
@@ -122,7 +123,9 @@ func update_attack(delta: float) -> void:
 	# Return to idle once attack animation is done
 	if state_time >= attack_duration:
 		change_state(State.IDLE)
-
+func get_attack_duration():
+	return anim_player.get_animation("Attack").length + delay_between_attacks
+	
 # ------------------
 # Animations
 # ------------------
