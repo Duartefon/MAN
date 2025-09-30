@@ -100,7 +100,7 @@ bind/21/name = &"Bone.021"
 bind/21/bone = -1
 bind/21/pose = Transform3D(-0.095566556, 0.2497987, -0.9635702, -0.9415754, -0.336747, 0.006085924, -0.32295895, 0.9078558, 0.2673862, 0.14957288, -0.15762998, -0.23353118)
 
-[node name="PlantShooterModel" type="Node3D"]
+[node name="PlantModelShooter" type="Node3D"]
 
 [node name="Armature_001" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65815616, 0)
@@ -261,6 +261,8 @@ bones/21/position = Vector3(3.1781383e-08, 0.43834177, 6.519258e-09)
 bones/21/rotation = Quaternion(0.84720904, -0.21464688, -0.08929501, 0.47769237)
 bones/21/scale = Vector3(0.9999997, 0.9999998, 0.9999998)
 
-[node name="Cube_001" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]
 mesh = SubResource("ArrayMesh_w0seg")
 skin = SubResource("Skin_r6fai")
+
+[node name="Cylinder" type="MeshInstance3D" parent="Armature_001/Skeleton3D"]

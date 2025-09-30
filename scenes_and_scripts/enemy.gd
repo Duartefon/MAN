@@ -2,13 +2,15 @@ extends CharacterBody3D
 class_name Enemy
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree = $PlantModel/AnimationTree
-<<<<<<< Updated upstream
-@onready var body = $PlantModel/Armature/Skeleton3D/Cube
-@onready var legs = $PlantModel/Armature/Skeleton3D/Cylinder
-=======
+ 
+ 
+@onready var body: MeshInstance3D = $PlantModel/Armature/Skeleton3D/Cube
+@onready var legs: MeshInstance3D = $PlantModel/Armature/Skeleton3D/Cylinder
+
 @export var attack_range: float = 10.0
 
->>>>>>> Stashed changes
+ 
+
 const SPEED: float = 3
 const DAMAGE: float = 25
 const ATTACK_ANIMATION_OFFSET: float = 0.35#when the enemy actually attacks
@@ -35,6 +37,7 @@ func find_player(node: Node) -> CharacterBody3D:
 	return null
 
 func _ready() -> void:
+	print("meshes: ", body,legs)
 	var level = get_tree().get_current_scene()
 	if level:
 		player = find_player(level)
