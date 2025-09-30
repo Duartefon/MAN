@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ekvhxovsp3q" path="res://scenes_and_scripts/resources/revolver_model.tscn" id="1_02jkw"]
 [ext_resource type="Script" uid="uid://dbgj7lqy3kdh4" path="res://scenes_and_scripts/gun_scenes/gun_data.gd" id="1_8js6l"]
 [ext_resource type="AudioStream" uid="uid://bwvoe21i58por" path="res://assets/sound/clean-revolver-reload-6889.mp3" id="1_pdxt1"]
-[ext_resource type="AudioStream" uid="uid://dq4o4ow7o4gvn" path="res://assets/sound/revolver_shots.mp3" id="2_02jkw"]
+[ext_resource type="AudioStream" uid="uid://bd55fbxh5fhyn" path="res://assets/sound/gun_shot.mp3" id="3_02jkw"]
 
 [resource]
 script = ExtResource("1_8js6l")
@@ -13,6 +13,6 @@ total_ammo = 25
 fire_rate = 1.0
 reload_duration = 3.0
 MODEL = ExtResource("1_02jkw")
-SHOOT_SOUND = ExtResource("2_02jkw")
+SHOOT_SOUND = ExtResource("3_02jkw")
 RELOAD_SOUND = ExtResource("1_pdxt1")
 metadata/_custom_type_script = "uid://dbgj7lqy3kdh4"
