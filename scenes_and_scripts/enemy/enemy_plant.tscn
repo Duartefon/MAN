@@ -374,14 +374,14 @@ debug_enabled = false
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlantModel/Armature" index="0"]
-bones/0/position = Vector3(-2.4941837e-09, 0.727443, 7.602448e-09)
-bones/4/rotation = Quaternion(0.12787302, -0.18464877, -0.82728916, 0.5149234)
-bones/8/rotation = Quaternion(-0.5257882, -0.4473386, -0.31214988, 0.6526848)
-bones/11/rotation = Quaternion(0.33067584, 0.66629934, 0.55139923, -0.3777005)
-bones/14/rotation = Quaternion(-0.013590671, 0.796426, 0.5936545, 0.11443443)
-bones/17/rotation = Quaternion(-0.28472668, 0.6804376, 0.59174603, 0.3252263)
-bones/20/rotation = Quaternion(-0.6427547, -0.11987309, -0.115177356, 0.7478176)
-bones/23/rotation = Quaternion(-0.5487359, 0.27352405, 0.25908318, 0.74629045)
+bones/0/position = Vector3(3.1933298e-09, 0.66064084, 1.8773543e-09)
+bones/4/rotation = Quaternion(0.14029388, -0.1974801, -0.7300389, 0.6390325)
+bones/8/rotation = Quaternion(-0.51456034, -0.46618432, -0.38104704, 0.610494)
+bones/11/rotation = Quaternion(0.26139534, 0.70795345, 0.5861585, -0.29477543)
+bones/14/rotation = Quaternion(-0.008072557, 0.775654, 0.62993526, 0.03843473)
+bones/17/rotation = Quaternion(-0.37178048, 0.62277305, 0.5412481, 0.42542163)
+bones/20/rotation = Quaternion(-0.6497686, -0.06514963, -0.058146928, 0.7550996)
+bones/23/rotation = Quaternion(-0.61982405, 0.15133932, 0.13303053, 0.75843084)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlantModel" index="1"]
 libraries = {

@@ -4,11 +4,11 @@ class_name Gun
 @export var shoot_type:GunType
  
  
-@onready var gun_barrel: Node3D = $glock/GunBarrel
+ 
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
-@onready var muzzle_flash: GPUParticles3D = $glock/MuzzleFlash
+ 
 @onready var current_weapon: Node = $CurrentWeapon
 
 
@@ -28,8 +28,9 @@ var reload_duration: float = 0.45
 var can_shoot:bool = true
 var can_reload:bool = true
 var projectile_container:Node3D
-signal weapon_reloaded(current_magazine_ammo, total_ammo)
 	
+signal weapon_reloaded(current_magazine_ammo, total_ammo)
+
 func _ready() -> void:
 	fire_rate_timer.timeout.connect(_on_fire_rate_timeout)
 	reload_timer.timeout.connect(_on_reload_timeout)
@@ -95,6 +96,8 @@ func _on_reload() -> void:
 		total_ammo -= ammo_to_reload
 		can_reload = false
 		reload_timer.start(reload_duration)
+		SignalBus.update_reload.emit(reload_duration)
+		
 		
 func _on_reload_timeout() -> void:
 	can_reload = true	

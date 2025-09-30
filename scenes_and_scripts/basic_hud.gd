@@ -1,6 +1,6 @@
 extends Node
 
-@onready var health: Label = %Health
+ 
 @onready var ammo_counter: RichTextLabel = $Control/Ammo_Counter/Ammo
 @onready var facecam = $Control/Control/healthy
 
@@ -15,21 +15,28 @@ func _ready() -> void:
 	facecam.play("healthy");
 	SignalBus.update_weapon_ammo.connect(_on_update_weapon_ammo)
 	SignalBus.update_player_health.connect(_on_update_player_health)
+	SignalBus.update_reload.connect(_on_update_reload)
 	
  
 	
-		
+func _on_update_reload(reload_time):
+	ammo_counter.text = "RELOADING"
+ 
+	
+
 func update_facecam(player_health):
 	if player_health >= 100:
 		facecam.play("healthy");
 	elif player_health >= 50  and player_health<99:
 		facecam.play("damaged");
-	elif player_health < 49:
+	elif player_health < 30:
 		facecam.play("super_damaged");
 			
 	
-func _on_update_weapon_ammo(current_magazine_ammo, total_ammo):
+func _on_update_weapon_ammo(current_magazine_ammo, total_ammo ):
 	#print("%d %d" % [current_magazine_ammo, total_ammo])
+ 
+ 
 	ammo_counter.text = "%d/%d" % [current_magazine_ammo, total_ammo]
 	
 func _on_update_player_health(current_health:float, total_health:float):

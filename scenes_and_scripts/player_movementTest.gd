@@ -1,8 +1,6 @@
 extends CharacterBody3D
 
 @onready var camera: Camera3D = $"../Camera3D"
-@onready var man: Node3D = $man
-@onready var ver_direcaodo_player: CSGBox3D = $verDirecaodoPlayer
 @onready var anim_tree = $Man/AnimationPlayer/AnimationTree
 @onready var damage_indicator: Node3D = $DamageIndicator
 
@@ -87,7 +85,8 @@ func _look_at_crosshair():
  
 func _process(delta: float) -> void:
 	if hp <= 0:
-		visible = false
+		#visible = false
+		queue_free()
 		print("morri")
 		get_node("../GameOverRestart").show()
 		

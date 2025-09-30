@@ -5,7 +5,7 @@ class_name GunData
 @export var magazine_ammo:int = 10
 @export var  total_ammo:int = 50
 @export var fire_rate: float = 0.5
-@export var reload_duration: float = 0.45
+@export var reload_duration: float = 0.45 #deve-se obter pelo som para ficar sincronizado
 
 @export var MODEL: PackedScene 
 @export var SHOOT_SOUND: Resource

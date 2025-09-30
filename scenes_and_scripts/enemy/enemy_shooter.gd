@@ -11,6 +11,7 @@ func ready():
 	attack_wait_timer.timeout.connect(_on_attack_wait_timeout)
 	
 func hit_player():
+	
 	print("shooting enemy")
 	gun.enemy_shoot( )
 	

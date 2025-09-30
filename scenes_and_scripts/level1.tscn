@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdybq1vph4u02"]
+[gd_scene load_steps=13 format=3 uid="uid://cdybq1vph4u02"]
 
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
 [ext_resource type="Script" uid="uid://dagob3ijdgnaf" path="res://scenes_and_scripts/camera.gd" id="3_xeb76"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1q8jqjjse0ao" path="res://scenes_and_scripts/enemy/enemy_plant.tscn" id="5_5mqiu"]
 [ext_resource type="PackedScene" uid="uid://b7sercln25wqy" path="res://scenes_and_scripts/spawner.tscn" id="5_v5daa"]
 [ext_resource type="PackedScene" uid="uid://dnahr5e7dopa7" path="res://scenes_and_scripts/enemy/enemy_plant_shooter.tscn" id="6_v5daa"]
+[ext_resource type="PackedScene" uid="uid://deoh6uf5u8e2f" path="res://scenes_and_scripts/game_over_restart.tscn" id="7_10xu4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vho74"]
 sky_top_color = Color(0.05119122, 0.50481564, 0.57051575, 1)
@@ -117,3 +118,5 @@ enemies_to_spawn = 0
 [node name="EnemyShooter" parent="." instance=ExtResource("6_v5daa")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -13.058348, 1.2123404, 27.513058)
 attack_range = 20.0
+
+[node name="GameOverRestart" parent="." instance=ExtResource("7_10xu4")]

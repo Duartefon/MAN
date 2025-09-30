@@ -5,11 +5,16 @@ class_name ParticleSystemManager
 @export var to_delete: bool = false
  
 var await_ps_counter:int = 0
+
+func _ready() -> void:
+	for ps in particle_systems:
+		if ps:
+			ps.finished.connect(_on_ps_finished)
 func play():
 	for ps in particle_systems:
 		if ps:
 			ps.emitting = true
-			ps.finished.connect(_on_ps_finished)
+			#ps.finished.connect(_on_ps_finished)
  		
 func _on_ps_finished():
 	if !to_delete: return

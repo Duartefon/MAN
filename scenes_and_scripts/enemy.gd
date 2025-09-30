@@ -28,6 +28,7 @@ var blend_speed: float = 10.0
  
 var player: CharacterBody3D
 
+
 func find_player(node: Node) -> CharacterBody3D:
 	for child in node.get_children():
 		if child.name == "Player":
