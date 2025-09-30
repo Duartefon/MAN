@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MAN"
-run/main_scene="uid://cdybq1vph4u02"
+run/main_scene="uid://rwyobln6nofv"
 config/features=PackedStringArray("4.5")
 config/icon="res://icon.svg"
 
