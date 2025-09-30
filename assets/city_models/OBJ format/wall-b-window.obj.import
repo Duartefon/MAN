@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cigkiv8p32fi8"
+path="res://.godot/imported/wall-b-window.obj-7888442740f439573b2f0df2f40e56d7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-b-window.obj-7888442740f439573b2f0df2f40e56d7.mesh"]
+
+source_file="res://assets/city_models/OBJ format/wall-b-window.obj"
+dest_files=["res://.godot/imported/wall-b-window.obj-7888442740f439573b2f0df2f40e56d7.mesh", "res://.godot/imported/wall-b-window.obj-7888442740f439573b2f0df2f40e56d7.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

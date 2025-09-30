@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://0638bgh7w420"]
+
+[ext_resource type="Texture2D" uid="uid://b1rnp1aq180cp" path="res://assets/city_models/GLB format/Textures/concrete.png" id="1_8lhi1"]
+
+[resource]
+resource_name = "concrete"
+shading_mode = 0
+albedo_texture = ExtResource("1_8lhi1")

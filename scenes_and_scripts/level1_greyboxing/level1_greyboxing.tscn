@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://da8gda4ejer20"]
+[gd_scene load_steps=14 format=3 uid="uid://da8gda4ejer20"]
 
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="1_24uls"]
 [ext_resource type="Script" uid="uid://dagob3ijdgnaf" path="res://scenes_and_scripts/camera.gd" id="2_gd4xb"]
 [ext_resource type="PackedScene" uid="uid://ddaaathug6mkc" path="res://scenes_and_scripts/basic_hud.tscn" id="3_m75w3"]
 [ext_resource type="PackedScene" uid="uid://b1q8jqjjse0ao" path="res://scenes_and_scripts/enemy/enemy_plant.tscn" id="4_i0n81"]
 [ext_resource type="MeshLibrary" uid="uid://1bgyru5fmx3m" path="res://scenes_and_scripts/level1_greyboxing/Level1MeshLibrary.tres" id="5_gd4xb"]
+[ext_resource type="PackedScene" uid="uid://istrvkybewhv" path="res://assets/city_models/GLB format/wall-a-column-painted.glb" id="6_m75w3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bwm64"]
 sky_top_color = Color(0.05119122, 0.50481564, 0.57051575, 1)
@@ -192,3 +193,6 @@ mesh_library = ExtResource("5_gd4xb")
 data = {
 "cells": PackedInt32Array(93, 65498, 1441793, 102, 65507, 655363, 119, 65507, 655363, 136, 65507, 655363, 153, 65507, 655363, 170, 65507, 655363, 187, 65489, 1)
 }
+
+[node name="wall-a-column-painted2" parent="." instance=ExtResource("6_m75w3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5646381, 0.8918009, -19.46799)

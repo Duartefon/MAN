@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c03q4rmq3yyuw"
+path="res://.godot/imported/wall-a-detail-painted.obj-e468227b37baa505e7758b2b7a0ca605.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-a-detail-painted.obj-e468227b37baa505e7758b2b7a0ca605.mesh"]
+
+source_file="res://assets/city_models/OBJ format/wall-a-detail-painted.obj"
+dest_files=["res://.godot/imported/wall-a-detail-painted.obj-e468227b37baa505e7758b2b7a0ca605.mesh", "res://.godot/imported/wall-a-detail-painted.obj-e468227b37baa505e7758b2b7a0ca605.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -2,15 +2,11 @@ extends Node3D
 class_name Gun
 
 @export var shoot_type:GunType
- 
- 
- 
+
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
- 
 @onready var current_weapon: Node = $CurrentWeapon
-
 
 @export var me_enemy_gun:bool = false
 @export var gun_data: GunData
@@ -42,11 +38,11 @@ func _ready() -> void:
 	reload_duration = gun_data.reload_duration
 	current_weapon.add_child(gun_data.MODEL.instantiate())
 	projectile_container = get_tree().get_root().get_children()[1].get_node("ProjectileContainer")
+	
 func _process(delta: float) -> void:
 	if me_enemy_gun:
 		return
-		
-		
+
 	if Input.is_action_just_pressed("fire_gun") and current_magazine_ammo > 0 and can_shoot and can_reload:
 		_on_shoot()
 		
@@ -72,13 +68,12 @@ func _on_shoot() -> void:
 		var bullet_instance: Bullet = BULLET.instantiate()
 		bullet_instance.set_damage(bullet_damage)
 		bullet_instance.global_position = current_weapon.get_child(0).get_raycast().global_position
-
-	 
 		bullet_instance.set_velocity(global_transform.basis.z * BULLET_SPEED)
-
 		current_weapon.get_child(0).play()
 		projectile_container.add_child(bullet_instance)
-func enemy_shoot():#esta a faltarme algum detalhe pq o inimigo dispara ao contrario, n consegui resolver bonito ent meti fitacola fds
+		
+func enemy_shoot():#esta a faltarme algum detalhe pq o inimigo dispara ao contrario, 
+	#n consegui resolver bonito ent meti fitacola fds
 	var bullet_instance:Bullet = BULLET.instantiate()
 	bullet_instance.set_damage(bullet_damage)
 	bullet_instance.global_position = 	current_weapon.get_child(0).get_raycast().global_position

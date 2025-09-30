@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://cuqmavtm4symn"
-path="res://.godot/imported/muzzle_planes.obj-f4c5b1ef7a248294a36a8bc5cb92b5ae.mesh"
+path="res://.godot/imported/muzzle_planes.obj-4ef7464ee5fba104e3ff21e2ed61b876.mesh"
 
 [deps]
 
-files=["res://.godot/imported/muzzle_planes.obj-f4c5b1ef7a248294a36a8bc5cb92b5ae.mesh"]
+files=["res://.godot/imported/muzzle_planes.obj-4ef7464ee5fba104e3ff21e2ed61b876.mesh"]
 
-source_file="res://Assets/muzzle_planes.obj"
-dest_files=["res://.godot/imported/muzzle_planes.obj-f4c5b1ef7a248294a36a8bc5cb92b5ae.mesh", "res://.godot/imported/muzzle_planes.obj-f4c5b1ef7a248294a36a8bc5cb92b5ae.mesh"]
+source_file="res://assets/muzzle_planes.obj"
+dest_files=["res://.godot/imported/muzzle_planes.obj-4ef7464ee5fba104e3ff21e2ed61b876.mesh", "res://.godot/imported/muzzle_planes.obj-4ef7464ee5fba104e3ff21e2ed61b876.mesh"]
 
 [params]
 

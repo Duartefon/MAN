@@ -4,14 +4,14 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://cyp1p7fbi8ckq"
-path="res://.godot/imported/MuzzlePlanes_test.obj-e7584c5963a898268d2b30dd0bd5f9dd.mesh"
+path="res://.godot/imported/MuzzlePlanes_test.obj-ce86dd8f9457dd4a8eba7b39e0790d3c.mesh"
 
 [deps]
 
-files=["res://.godot/imported/MuzzlePlanes_test.obj-e7584c5963a898268d2b30dd0bd5f9dd.mesh"]
+files=["res://.godot/imported/MuzzlePlanes_test.obj-ce86dd8f9457dd4a8eba7b39e0790d3c.mesh"]
 
-source_file="res://Assets/MuzzlePlanes_test.obj"
-dest_files=["res://.godot/imported/MuzzlePlanes_test.obj-e7584c5963a898268d2b30dd0bd5f9dd.mesh", "res://.godot/imported/MuzzlePlanes_test.obj-e7584c5963a898268d2b30dd0bd5f9dd.mesh"]
+source_file="res://assets/MuzzlePlanes_test.obj"
+dest_files=["res://.godot/imported/MuzzlePlanes_test.obj-ce86dd8f9457dd4a8eba7b39e0790d3c.mesh", "res://.godot/imported/MuzzlePlanes_test.obj-ce86dd8f9457dd4a8eba7b39e0790d3c.mesh"]
 
 [params]
 
