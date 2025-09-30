@@ -34,7 +34,7 @@ func _on_update_weapon_ammo(current_magazine_ammo, total_ammo):
 	
 func _on_update_player_health(current_health:float, total_health:float):
 	#print("%d %d" % [current_health, total_health])
-	health.text = "%d/%d" % [current_health, total_health]
 	update_facecam(current_health)
+	
 	
  
