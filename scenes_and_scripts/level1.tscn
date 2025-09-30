@@ -114,3 +114,5 @@ size = Vector3(172.17, 1.4, 88.34)
 [node name="Spawner" parent="." instance=ExtResource("5_v5daa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.412907, 0, -16.175686)
 enemy_type_array = Array[PackedScene]([ExtResource("5_5mqiu")])
+
+[node name="ProjectileContainer" type="Node3D" parent="."]

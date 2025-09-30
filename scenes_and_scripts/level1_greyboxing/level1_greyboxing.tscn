@@ -46,6 +46,8 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_24uls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8224034, 0.7664137, -3.7921968)
+h_accelerate = 80
+h_desaccelerate = 80
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.3083031, 0.9512882, 0, -0.9512882, 0.3083031, -3.3798032, 28.569004, 5.28319)
@@ -78,31 +80,114 @@ material_overlay = SubResource("StandardMaterial3D_qol36")
 use_collision = true
 size = Vector3(22.811737, 6.9240723, 1)
 
-[node name="Enemy" parent="." instance=ExtResource("4_i0n81")]
+[node name="barriers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.229706, 4.5205507, 15.943863)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -43)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, -43)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -83)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, -83)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -127)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, -127)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -168)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="barriers"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 53, 0, -168)
+use_collision = true
+size = Vector3(10, 6, 1)
+
+[node name="Enemies2" type="Node3D" parent="."]
 transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, -0.92409945, 1.2484727, -18.780258)
 
+[node name="Enemy" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-0.9659257, 0, -0.25881913, 0, 0.9999997, 0, 0.25881913, 0, -0.9659257, 1.8134712, 0, -18.134716)
+
+[node name="Enemy3" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-0.9659257, 0, -0.25881913, 0, 0.99999964, 0, 0.25881913, 0, -0.9659257, -1.8134718, 0, -18.134716)
+
+[node name="Enemy4" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-0.9659257, 0, -0.25881913, 0, 0.9999994, 0, 0.25881913, 0, -0.9659257, 0.25906748, 0, -34.45596)
+
+[node name="Enemy5" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-0.9659257, 0, -0.25881913, 0, 0.9999993, 0, 0.25881913, 0, -0.9659257, -2.5906734, 0, -32.124348)
+
+[node name="Enemy6" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-0.9659257, 0, -0.25881913, 0, 0.9999992, 0, 0.25881913, 0, -0.9659257, 2.072539, 0, -32.124348)
+
+[node name="Enemy7" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-1.0809133e-07, 0, 0.9999998, 0, 0.9999991, 0, -0.9999998, 0, -1.0809133e-07, 24.352331, 0, -32.124348)
+
+[node name="Enemy8" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-1.0809133e-07, 0, 0.99999976, 0, 0.9999991, 0, -0.99999976, 0, -1.0809133e-07, 24.35233, 0, -36.528492)
+
+[node name="Enemy12" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-1.0809133e-07, 0, 0.99999946, 0, 0.9999991, 0, -0.99999946, 0, -1.0809133e-07, 20.725384, 0, -34.715008)
+
+[node name="Enemy13" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-1.0809133e-07, 0, 0.9999994, 0, 0.9999991, 0, -0.9999994, 0, -1.0809133e-07, 20.725382, 0, -37.04661)
+
+[node name="Enemy14" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-1.0809133e-07, 0, 0.99999934, 0, 0.9999991, 0, -0.99999934, 0, -1.0809133e-07, 20.72538, 0, -32.124332)
+
+[node name="Enemy2" parent="Enemies2" instance=ExtResource("4_i0n81")]
+transform = Transform3D(-0.9659257, 0, -0.2588192, 0, 0.9999997, 0, 0.2588192, 0, -0.9659257, 2.5331974e-07, 0, -4.9222803)
+
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
-transform = Transform3D(1.0331603e-07, 0, 1, 0, 1, 0, -1, 0, 1.0331603e-07, 186.53546, -29.121578, -193.92035)
+transform = Transform3D(1.0331603e-07, 0, 1, 0, 1, 0, -1, 0, 1.0331603e-07, 190.53546, -30.121578, -193.92035)
 use_collision = true
-polygon = PackedVector2Array(-102, -5, -28, 17, 9, 31, 9, -5)
+polygon = PackedVector2Array(-111, -4, -28, 17, 8, 31, 9, -5)
 depth = 35.0
 
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
-transform = Transform3D(1.0331603e-07, 0, 1, 0, 1, 0, -1, 0, 1.0331603e-07, 393.53546, -30.197308, -193.92035)
+transform = Transform3D(1.0331603e-07, 0, 1, 0, 1, 0, -1, 0, 1.0331603e-07, 392.53546, -30.197308, -191.92035)
 use_collision = true
-polygon = PackedVector2Array(-102, -5, -28, 17, 9, 31, 9, -5)
+polygon = PackedVector2Array(-110, -4, -28, 17, 12, 32, 15, -4)
 depth = 35.0
+
+[node name="GridMap3" type="GridMap" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh_library = ExtResource("5_gd4xb")
+data = {
+"cells": PackedInt32Array(283, 65382, 8, 301, 65381, 3, 265, 65381, 3, 247, 65381, 3, 319, 65381, 3, 337, 65381, 1, 239, 65390, 1441793, 239, 65373, 1441795, 346, 65374, 1441795, 346, 65358, 1441795, 239, 65357, 1441798, 245, 65365, 655363, 274, 65373, 1048579, 274, 65356, 1048582, 266, 65347, 3, 262, 65347, 3, 328, 65341, 1048577, 304, 65332, 3, 301, 65332, 3, 293, 65340, 1441798, 239, 65340, 1441795, 320, 65332, 6, 329, 65325, 1441795, 293, 65324, 1441795, 311, 65310, 1048579, 311, 65293, 1048577, 303, 65284, 3, 302, 65284, 3, 293, 65291, 1441798, 239, 65323, 1441795, 230, 65315, 655361, 246, 65315, 655363, 263, 65315, 655363, 266, 65315, 655363, 274, 65308, 1048582, 275, 65275, 1048579, 275, 65259, 1048579, 275, 65245, 1048576)
+}
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.2, 0)
 mesh_library = ExtResource("5_gd4xb")
 data = {
-"cells": PackedInt32Array(-851960, 65528, 1441794, -851960, 65511, 1441795, -851960, 65494, 1441795, -851960, 65477, 1441795, -786433, 65468, 655361, -851952, 65468, 655363, -851935, 65468, 655363, -851918, 65468, 655363, -851901, 65468, 655363, -851781, 65434, 655361, -851764, 65434, 655363, -851747, 65434, 655363, -851730, 65434, 655363, -851713, 65416, 1, -851704, 65408, 1441795, -851704, 65391, 1441795, -851704, 65374, 1441798, -851695, 65382, 655363, -851722, 65357, 1048579, -851722, 65340, 1048577, -851678, 65364, 3, -851660, 65382, 655366, -851652, 65390, 1441794, -851643, 65364, 1, -851634, 65355, 1441795, -851634, 65338, 1441798, -851626, 65329, 2, -851652, 65321, 1048577, -851660, 65330, 655363, -851669, 65321, 1441793, -851731, 65349, 655363, -851748, 65349, 655363, -851766, 65349, 655366, -851757, 65358, 1441794, -851775, 65340, 1441793, -851775, 65323, 1441795, -851793, 65306, 1048582, -851802, 65314, 655362, -851784, 65297, 655361, -851767, 65297, 655363, -851750, 65297, 655363, -851733, 65297, 655366, -851723, 65306, 1441794, -851716, 65280, 1, -851669, 65304, 1441795, -851707, 65271, 1441795, -851669, 65287, 1441795, -851669, 65270, 1441795, -851716, 65263, 655361, -851687, 65253, 1048577, -851699, 65245, 6, -851696, 65245, 6, -851688, 65236, 1441795, -851688, 65219, 1441795, -851706, 65202, 1048578, -851884, 65450, 1, -851893, 65442, 1048583, -851795, 65444, 5, -851667, 65379, 5)
+"cells": PackedInt32Array(-851960, 65528, 1441794, -851960, 65511, 1441795, -851960, 65494, 1441795, -851960, 65477, 1441795, -786433, 65468, 655361, -851952, 65468, 655363, -851781, 65434, 655361, -851764, 65434, 655363, -851747, 65434, 655363, -851730, 65434, 655363, -851713, 65416, 1, -851704, 65408, 1441795, -851688, 65219, 1441795, -851706, 65202, 1048578, -851795, 65444, 5, -851935, 65450, 3, -851918, 65450, 3, -851900, 65450, 1, -851909, 65442, 1048579, -851892, 65426, 1048577, -851900, 65435, 655361)
 }
-metadata/_editor_floor_ = Vector3(0, -13, 0)
+metadata/_editor_floor_ = Vector3(0, -28, 0)
 
 [node name="GridMap2" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -32, 0)
 mesh_library = ExtResource("5_gd4xb")
 data = {
 "cells": PackedInt32Array(93, 65498, 1441793, 102, 65507, 655363, 119, 65507, 655363, 136, 65507, 655363, 153, 65507, 655363, 170, 65507, 655363, 187, 65489, 1)
