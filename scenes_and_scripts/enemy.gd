@@ -3,9 +3,9 @@ class_name Enemy
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree = $PlantModel/AnimationTree
  
- 
-@onready var body: MeshInstance3D = $PlantModel/Armature/Skeleton3D/Cube
-@onready var legs: MeshInstance3D = $PlantModel/Armature/Skeleton3D/Cylinder
+
+@export var body: MeshInstance3D 
+@export var legs: MeshInstance3D  
 
 @export var attack_range: float = 10.0
 

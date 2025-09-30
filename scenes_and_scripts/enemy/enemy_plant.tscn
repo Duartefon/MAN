@@ -359,8 +359,10 @@ nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_yt4d4")
 nodes/AttackOneShot/position = Vector2(280, 240)
 node_connections = [&"output", 0, &"AttackOneShot", &"IdleRunBlend", 0, &"Idle", &"IdleRunBlend", 1, &"Walk", &"AttackOneShot", 0, &"IdleRunBlend", &"AttackOneShot", 1, &"Attack"]
 
-[node name="Enemy" groups=["Enemy"] instance=ExtResource("1_vfftn")]
+[node name="Enemy" node_paths=PackedStringArray("body", "legs") instance=ExtResource("1_vfftn")]
 transform = Transform3D(3.86, 0, 0, 0, 3.86, 0, 0, 0, 3.86, 0, 0, 0)
+body = NodePath("PlantModel/Armature/Skeleton3D/Cube")
+legs = NodePath("PlantModel/Armature/Skeleton3D/Cylinder")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.9999991, 0, 0, 0, 0.9999991, 0, 0, 0, 0.9999991, 0, 0.9629483, 0)
@@ -372,14 +374,14 @@ debug_enabled = false
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlantModel/Armature" index="0"]
-bones/0/position = Vector3(-7.1175554e-09, 0.64411265, 4.608545e-10)
-bones/4/rotation = Quaternion(0.13649233, -0.19370171, -0.7649652, 0.5988973)
-bones/8/rotation = Quaternion(-0.5539696, -0.4008481, -0.3451172, 0.6429095)
-bones/11/rotation = Quaternion(0.36224264, 0.6434309, 0.5302722, -0.41663942)
-bones/14/rotation = Quaternion(-0.05717589, 0.7624965, 0.64115465, 0.06519751)
-bones/17/rotation = Quaternion(-0.2397656, 0.70283204, 0.611313, 0.27356198)
-bones/20/rotation = Quaternion(-0.6381398, -0.15303014, -0.13718484, 0.74198365)
-bones/23/rotation = Quaternion(-0.5972631, 0.29657155, 0.24942358, 0.70221794)
+bones/0/position = Vector3(-2.4941837e-09, 0.727443, 7.602448e-09)
+bones/4/rotation = Quaternion(0.12787302, -0.18464877, -0.82728916, 0.5149234)
+bones/8/rotation = Quaternion(-0.5257882, -0.4473386, -0.31214988, 0.6526848)
+bones/11/rotation = Quaternion(0.33067584, 0.66629934, 0.55139923, -0.3777005)
+bones/14/rotation = Quaternion(-0.013590671, 0.796426, 0.5936545, 0.11443443)
+bones/17/rotation = Quaternion(-0.28472668, 0.6804376, 0.59174603, 0.3252263)
+bones/20/rotation = Quaternion(-0.6427547, -0.11987309, -0.115177356, 0.7478176)
+bones/23/rotation = Quaternion(-0.5487359, 0.27352405, 0.25908318, 0.74629045)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlantModel" index="1"]
 libraries = {

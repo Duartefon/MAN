@@ -7,7 +7,7 @@
 radius = 0.43644512
 height = 2.1488476
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 transform = Transform3D(1.255, 0, 0, 0, 1.255, 0, 0, 0, 1.255, 0, 0, 0)
 script = ExtResource("1_r7706")
 
