@@ -20,6 +20,8 @@ var curr_anim = IDLE
 var run_val = 0
 var hp = 100
 
+func _ready():
+	anim_tree.active = true
  
 func _physics_process(delta):
 	_handle_movement(delta)

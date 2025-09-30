@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm1vhqxwx51dh"]
+
+[ext_resource type="Texture2D" uid="uid://bewxbdipa87d1" path="res://assets/jernpainting.png" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://dwbwy4bxlug8w" path="res://assets/HUD/play_btn.png" id="2_7vrkn"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1153.7778
+offset_bottom = 649.0
+texture = ExtResource("1_06t4h")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 177.0
+offset_right = 1004.0
+offset_bottom = 469.0
+texture_normal = ExtResource("2_7vrkn")
