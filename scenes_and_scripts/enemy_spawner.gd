@@ -4,6 +4,8 @@ extends Node3D
 @export var radius:float = 20
 @export var enemies_to_spawn:int = 5
 @export var parent_node:Node3D   
+@export var enemy_manager_node:Node
+
 
 func _spawn():
 	for i in range(enemies_to_spawn):
@@ -29,8 +31,19 @@ func _spawn():
 		
 		enemy.global_position = spawn_point
 		print("Spawned enemy at ", spawn_point)
+		
+		var manager = get_tree().get_first_node_in_group("enemy_manager")
+		if manager:
+			manager.register_enemy(enemy)
 
 	print("Spawned all enemies")
 
 func _ready() -> void:
 	_spawn()
+
+	if enemy_manager_node:
+		enemy_manager_node.connect("all_enemies_defeated", Callable(self, "_on_all_enemies_defeated"))
+
+func _on_all_enemies_defeated():
+	print("Todos inimigos mortos! ")
+	# aqui wtv o q acontece depois de todos mortos pode ser tipo abrir um portao

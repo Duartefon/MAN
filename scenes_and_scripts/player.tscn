@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bc2nuuf4sbc07" path="res://scenes_and_scripts/player_movementTest.gd" id="1_e8vqu"]
 [ext_resource type="PackedScene" uid="uid://dqxboitl7bqhf" path="res://scenes_and_scripts/man.tscn" id="2_e8vqu"]
 [ext_resource type="PackedScene" uid="uid://dyd27ms5jujck" path="res://scenes_and_scripts/particle_effects/blood.tscn" id="2_f8gj8"]
-[ext_resource type="Resource" uid="uid://csg0yy17fpptq" path="res://scenes_and_scripts/resources/revolver_data.tres" id="4_awlyc"]
+[ext_resource type="Resource" uid="uid://cjdahix0lr7ui" path="res://scenes_and_scripts/gun_scenes/blaster.tres" id="4_awlyc"]
 [ext_resource type="PackedScene" uid="uid://7hbiv8w54je4" path="res://scenes_and_scripts/damage_indicator.tscn" id="5_23chc"]
 [ext_resource type="AudioStream" uid="uid://bv65k4s7bu27b" path="res://assets/SFX/man_damage_sound.wav" id="5_awlyc"]
 
@@ -141,6 +141,8 @@ bones/212/rotation = Quaternion(0.44648197, 0.5767847, 0.5411535, -0.41848102)
 transform = Transform3D(-0.8422997, 0.5053754, -0.18742186, 0.019617975, 0.3762287, 0.9263192, 0.5386524, 0.7765613, -0.32681182, -1.7523139, 3.3917239, 1.835669)
 
 [node name="GunHolder" parent="Man/char_grp/rig/Skeleton3D/BoneAttachment3D" index="0"]
+shoot_type = null
+me_enemy_gun = null
 gun_data = ExtResource("4_awlyc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

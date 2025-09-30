@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdybq1vph4u02"]
+[gd_scene load_steps=14 format=3 uid="uid://cdybq1vph4u02"]
 
 [ext_resource type="PackedScene" uid="uid://dl1dtjqvty7st" path="res://scenes_and_scripts/player.tscn" id="2_xfcms"]
 [ext_resource type="Script" uid="uid://dagob3ijdgnaf" path="res://scenes_and_scripts/camera.gd" id="3_xeb76"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7sercln25wqy" path="res://scenes_and_scripts/spawner.tscn" id="5_v5daa"]
 [ext_resource type="PackedScene" uid="uid://dnahr5e7dopa7" path="res://scenes_and_scripts/enemy/enemy_plant_shooter.tscn" id="6_v5daa"]
 [ext_resource type="PackedScene" uid="uid://deoh6uf5u8e2f" path="res://scenes_and_scripts/game_over_restart.tscn" id="7_10xu4"]
+[ext_resource type="Script" uid="uid://cdeisujiwph0n" path="res://scenes_and_scripts/enemy_manager.gd" id="8_62b5j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vho74"]
 sky_top_color = Color(0.05119122, 0.50481564, 0.57051575, 1)
@@ -111,7 +112,6 @@ size = Vector3(172.17, 1.4, 88.34)
 [node name="Spawner" parent="." instance=ExtResource("5_v5daa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.412907, 0, -16.175686)
 enemy_type_array = Array[PackedScene]([ExtResource("5_5mqiu")])
-enemies_to_spawn = 0
 
 [node name="ProjectileContainer" type="Node3D" parent="."]
 
@@ -120,3 +120,6 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -13.058348, 1.2123404, 27.513
 attack_range = 20.0
 
 [node name="GameOverRestart" parent="." instance=ExtResource("7_10xu4")]
+
+[node name="EnemyManager" type="Node3D" parent="." groups=["enemy_manager"]]
+script = ExtResource("8_62b5j")

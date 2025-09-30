@@ -24,6 +24,7 @@ SignalBus="*res://scenes_and_scripts/signal_bus.gd"
 Enemy=""
 BulletEnemy=""
 Player=""
+enemy_manager=""
 
 [input]
 
