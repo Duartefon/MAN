@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqnk3wc4omjib"]
+
+[ext_resource type="Script" uid="uid://cjcmc2cafdke8" path="res://pickable.gd" id="1_iixbb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gg6gn"]
+size = Vector3(1, 1.1629639, 1)
+
+[node name="Node3D" type="Area3D"]
+script = ExtResource("1_iixbb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08148193, 0)
+shape = SubResource("BoxShape3D_gg6gn")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

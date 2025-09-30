@@ -141,6 +141,8 @@ bones/212/rotation = Quaternion(0.44648197, 0.5767847, 0.5411535, -0.41848102)
 transform = Transform3D(-0.8422997, 0.5053754, -0.18742186, 0.019617975, 0.3762287, 0.9263192, 0.5386524, 0.7765613, -0.32681182, -1.7523139, 3.3917239, 1.835669)
 
 [node name="GunHolder" parent="Man/char_grp/rig/Skeleton3D/BoneAttachment3D" index="0"]
+shoot_type = 0
+me_enemy_gun = false
 gun_data = ExtResource("4_awlyc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

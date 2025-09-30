@@ -7,6 +7,7 @@ signal update_player_health(current_health:float, total_health:float)
 
 signal update_reload(reload_duration )
 
+signal all_enemies_defeated()
   #spaghetti estar aqui mas fds
 # em oop isto ia parar a outro script mas fds 
 #func display_number(value:int, position: Vector3, is_critical: bool = false):

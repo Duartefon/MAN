@@ -8,5 +8,6 @@ script = ExtResource("2_lkr1g")
 bullet_damage = 10.0
 magazine_ammo = 5
 total_ammo = 500
+bullet_speed = 5.0
 MODEL = ExtResource("1_neij7")
 metadata/_custom_type_script = "uid://dbgj7lqy3kdh4"

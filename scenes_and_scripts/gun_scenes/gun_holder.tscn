@@ -4,6 +4,8 @@
 
 [node name="GunHolder" type="Node3D"]
 script = ExtResource("1_b0at6")
+shoot_type = null
+me_enemy_gun = null
 
 [node name="FireRateTimer" type="Timer" parent="."]
 
