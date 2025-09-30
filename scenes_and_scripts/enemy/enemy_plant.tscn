@@ -14,6 +14,7 @@ emission_enabled = true
 emission_texture = ExtResource("3_tbtfp")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bqfkj"]
+resource_local_to_scene = true
 resource_name = "plant_Cube_001"
 _surfaces = [{
 "aabb": AABB(-0.66916126, 0.6107452, -0.4676467, 1.0556589, 1.5741315, 1.379339),
@@ -42,6 +43,7 @@ emission_enabled = true
 emission_texture = ExtResource("3_tbtfp")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fddi7"]
+resource_local_to_scene = true
 resource_name = "plant_Cylinder"
 _surfaces = [{
 "aabb": AABB(-1.0982442, -0.009329081, -1.0769926, 2.1950269, 0.7726542, 2.0933642),
@@ -176,6 +178,34 @@ tracks/14/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_x8m1t"]
+resource_name = "HitFlash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Cube:mesh:surface_0/material:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D/Cylinder:mesh:surface_0/material:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ey0q5"]
 resource_name = "Idle"
 length = 2.0416667
@@ -278,6 +308,33 @@ tracks/13/path = NodePath("Armature/Skeleton3D:Bone.023")
 tracks/13/interp = 0
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -0.5966518, 0.29828686, 0.25088254, 0.701491)
+
+[sub_resource type="Animation" id="Animation_crywu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Cube:mesh:surface_0/material:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D/Cylinder:mesh:surface_0/material:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7p4f3"]
 resource_name = "Walk"
@@ -382,61 +439,6 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -0.6381062, 0.13070962, 0.10842426, 0.7509858, 0.033333335, 1, -0.6381062, 0.13070962, 0.10842426, 0.7509858, 0.06666667, 1, -0.63793916, 0.13186216, 0.10940357, 0.75078434, 0.1, 1, -0.63750553, 0.13480283, 0.11190228, 0.7502617, 0.13333334, 1, -0.63675356, 0.13974847, 0.11610471, 0.7493564, 0.16666667, 1, -0.63568115, 0.14649731, 0.12183952, 0.7480663, 0.2, 1, -0.6342096, 0.15525398, 0.12928084, 0.74629813, 0.23333333, 1, -0.63242644, 0.16520731, 0.1377395, 0.7441581, 0.26666668, 1, -0.6303296, 0.17614752, 0.14703734, 0.7416446, 0.3, 1, -0.6279234, 0.18786329, 0.15699501, 0.73876387, 0.33333334, 1, -0.62522143, 0.20014267, 0.16743241, 0.73553216, 0.4, 1, -0.61908793, 0.22534075, 0.18885303, 0.7282076, 0.43333334, 1, -0.61580104, 0.23764032, 0.19930995, 0.7242871, 0.46666667, 1, -0.61245376, 0.2494723, 0.20937009, 0.72029734, 0.5, 1, -0.6091239, 0.2606428, 0.21886843, 0.71633095, 0.53333336, 1, -0.6060226, 0.27057534, 0.22731473, 0.71263856, 0.56666666, 1, -0.6031891, 0.27929524, 0.23473026, 0.7092664, 0.6, 1, -0.6007234, 0.2866328, 0.2409706, 0.706333, 0.6333333, 1, -0.5987254, 0.29242057, 0.24589306, 0.70395654, 0.6666667, 1, -0.59729165, 0.2964914, 0.24935544, 0.70225173, 0.7, 1, -0.59678006, 0.29792792, 0.25057724, 0.7016435, 0.73333335, 1, -0.5934441, 0.2968756, 0.25170124, 0.7045108, 0.76666665, 1, -0.58596146, 0.29343048, 0.2534476, 0.7115561, 0.8, 1, -0.57442427, 0.28785384, 0.25582522, 0.7223091, 0.8333333, 1, -0.560417, 0.280611, 0.25816348, 0.73521554, 0.8666667, 1, -0.54661804, 0.27224115, 0.25924, 0.74825674, 0.9, 1, -0.53563786, 0.26386276, 0.25847363, 0.7593812, 0.93333334, 1, -0.5293948, 0.25609913, 0.25532806, 0.76743865, 0.96666664, 1, -0.5294276, 0.24833988, 0.24881646, 0.77209073, 1, 1, -0.53677887, 0.23868567, 0.23744568, 0.7736389, 1.0333333, 1, -0.5512779, 0.22348681, 0.21929927, 0.77333975, 1.0666667, 1, -0.56844175, 0.20588231, 0.19823675, 0.77148473, 1.1, 1, -0.58654183, 0.1871377, 0.1758078, 0.76814044, 1.1333333, 1, -0.60403144, 0.16858575, 0.15362717, 0.76362526, 1.1666666, 1, -0.61957204, 0.15161641, 0.1333614, 0.7585234, 1.2083334, 1, -0.6330576, 0.13647959, 0.115303166, 0.75320435)
 
-[sub_resource type="Animation" id="Animation_x8m1t"]
-resource_name = "HitFlash"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Cube:mesh:surface_0/material:emission")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D/Cylinder:mesh:surface_0/material:emission")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_crywu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Cube:mesh:surface_0/material:emission")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D/Cylinder:mesh:surface_0/material:emission")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ugrw"]
 _data = {
 &"Attack": SubResource("Animation_0sqje"),
@@ -465,7 +467,7 @@ animation = &"Idle"
 animation = &"Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yt4d4"]
-graph_offset = Vector2(-248.6951, 113.886444)
+graph_offset = Vector2(-71.60336, 223.86133)
 nodes/output/position = Vector2(820, 260)
 nodes/IdleRunBlend/node = SubResource("AnimationNodeBlend2_tbtfp")
 nodes/IdleRunBlend/position = Vector2(60, 200)
@@ -496,14 +498,14 @@ debug_enabled = false
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="PlantModel/Armature" index="0"]
-bones/0/position = Vector3(-2.5184976e-09, 0.6792649, 3.4734797e-09)
-bones/4/rotation = Quaternion(0.13000046, -0.18693295, -0.8136402, 0.534926)
-bones/8/rotation = Quaternion(-0.52188694, -0.45519373, -0.39194334, 0.6056511)
-bones/11/rotation = Quaternion(0.25963402, 0.7199827, 0.5646426, -0.30885905)
-bones/14/rotation = Quaternion(-0.017350612, 0.76507163, 0.64342386, 0.019241067)
-bones/17/rotation = Quaternion(-0.3435983, 0.6484177, 0.52950776, 0.42557752)
-bones/20/rotation = Quaternion(-0.6220978, -0.0883047, -0.055895075, 0.77593327)
-bones/23/rotation = Quaternion(-0.6359024, 0.14513189, 0.120679215, 0.74833244)
+bones/0/position = Vector3(-5.463179e-09, 0.7383249, 8.535052e-09)
+bones/4/rotation = Quaternion(0.13692163, -0.19413808, -0.76128125, 0.6033355)
+bones/8/rotation = Quaternion(-0.50288093, -0.48097956, -0.3198065, 0.64303446)
+bones/11/rotation = Quaternion(0.2914217, 0.6913695, 0.57254714, -0.3305623)
+bones/14/rotation = Quaternion(0.008208141, 0.80766636, 0.577087, 0.12074084)
+bones/17/rotation = Quaternion(-0.335787, 0.64911777, 0.5643159, 0.38398027)
+bones/20/rotation = Quaternion(-0.64724404, -0.087756366, -0.08312818, 0.75263774)
+bones/23/rotation = Quaternion(-0.5438379, 0.23136298, 0.22869831, 0.7735688)
 
 [node name="Cube" parent="PlantModel/Armature/Skeleton3D" index="0"]
 mesh = SubResource("ArrayMesh_bqfkj")

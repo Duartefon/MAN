@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("1_nxf40")
-bullet_damage = 50.0
+bullet_damage = 25.0
 reload_duration = 2.0
 MODEL = ExtResource("1_iqofx")
 SHOOT_SOUND = ExtResource("3_iqofx")

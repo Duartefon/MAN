@@ -109,3 +109,7 @@ func hit(damage:float, dir:Vector3):
 	
 func get_hp():
 	return hp
+	
+func play_footstep():
+	$Footstep.pitch_scale = randf_range(.8, 1.2)
+	$Footstep.play()

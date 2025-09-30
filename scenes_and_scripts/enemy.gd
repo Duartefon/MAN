@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree = $PlantModel/AnimationTree
-
+@onready var body = $PlantModel/Armature/Skeleton3D/Cube
+@onready var legs = $PlantModel/Armature/Skeleton3D/Cylinder
 const SPEED: float = 3
 const ATTACK_RANGE: float = 10.0
 const DAMAGE: float = 25
@@ -37,6 +38,10 @@ func _ready() -> void:
 			print("Found player: ", player)
 		else:
 			print("Player not found in scene!")
+	
+	body.material_override = body.mesh.surface_get_material(0).duplicate()
+	legs.material_override = legs.mesh.surface_get_material(0).duplicate()
+
 
 
 
@@ -118,11 +123,33 @@ func target_in_attack_range() -> bool:
 
 #TODO: fazer o damage indicator mais funcional e n depender do inimigo estar vivo
 func apply_damage(damage):
-	anim_tree["parameters/HitAdd/add_amount"] = 0.0
+	#anim_tree["parameters/HitAdd/add_amount"] = 0.0
 	hp -= damage
-	anim_tree["parameters/HitAdd/add_amount"] = 1.0
+
+	flash_material()
 	
 	if hp <= 0:
 		queue_free()
 	else: 
 		$DamageIndicator.create_indicator_label(damage)
+		
+func flash_material():
+	var mat_body = body.material_override
+	if mat_body == null:
+		mat_body = body.mesh.surface_get_material(0).duplicate()
+		body.material_override = mat_body
+
+	var mat_legs = legs.material_override
+	if mat_legs == null:
+		mat_legs = legs.mesh.surface_get_material(0).duplicate()
+		legs.material_override = mat_legs
+
+	mat_body.emission_enabled = true
+	mat_body.emission = Color(1,1,1)
+
+	mat_legs.emission_enabled = true
+	mat_legs.emission = Color(1,1,1)
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(mat_body, "emission", Color(0,0,0), 0.2)
+	tween.tween_property(mat_legs, "emission", Color(0,0,0), 0.2)

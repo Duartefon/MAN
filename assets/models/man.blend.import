@@ -2096,10 +2096,10 @@ _subresources={
 "slices/amount": 0
 },
 "Run": {
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
-"save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "",
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/Anim/man.res",
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "uid://bmixl32jt775k",
 "settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
