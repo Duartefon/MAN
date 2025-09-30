@@ -8,6 +8,7 @@ class_name Enemy
 @export var body: MeshInstance3D
 @export var legs: MeshInstance3D
 @export var attack_range: float = 10.0
+@export var delay_between_attacks = 0
 
 const SPEED: float = 3
 const DAMAGE: float = 25
@@ -24,10 +25,9 @@ var state_time: float = 0.0
 var walk_val: float = 0.0
 var blend_speed: float = 10.0
 
-# Player reference
+ 
 var player: CharacterBody3D
 
-var delay_between_attacks = 0
 func find_player(node: Node) -> CharacterBody3D:
 	for child in node.get_children():
 		if child.name == "Player":
@@ -63,9 +63,7 @@ func _physics_process(delta: float) -> void:
 	
 	update_animation(delta)
 
-# ------------------
-# State Management
-# ------------------
+ 
 func change_state(new_state: State) -> void:
 	if state == new_state:
 		return
@@ -79,9 +77,7 @@ func change_state(new_state: State) -> void:
 		State.ATTACK:
 			anim_tree["parameters/AttackOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
-# ------------------
-# State Updates
-# ------------------
+ 
 func update_idle(delta: float) -> void:
 	var distance = global_position.distance_to(player.global_position)
 	if distance > attack_range:
@@ -116,19 +112,14 @@ func update_attack(delta: float) -> void:
 	var attack_duration = get_attack_duration()
 	var hit_time = ATTACK_ANIMATION_OFFSET
 	
-	# Deal damage at the right moment
 	if state_time >= hit_time and state_time - delta < hit_time:
-		hit_player()
+		pass#hit_player()
 
-	# Return to idle once attack animation is done
 	if state_time >= attack_duration:
 		change_state(State.IDLE)
 func get_attack_duration():
 	return anim_player.get_animation("Attack").length + delay_between_attacks
 	
-# ------------------
-# Animations
-# ------------------
 func update_animation(delta: float) -> void:
 	match state:
 		State.IDLE:
@@ -139,9 +130,6 @@ func update_animation(delta: float) -> void:
 			walk_val = 0.0
 	anim_tree["parameters/IdleRunBlend/blend_amount"] = walk_val
 
-# ------------------
-# Combat
-# ------------------
 func hit_player():
 	if target_in_attack_range() and player:
 		var dir = global_position.direction_to(player.global_position)

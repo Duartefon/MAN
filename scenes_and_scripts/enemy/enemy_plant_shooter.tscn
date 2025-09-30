@@ -283,6 +283,8 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("2_sx6r6")
 body = NodePath("PlantModel/Armature_001/Skeleton3D/Cube")
 legs = NodePath("PlantModel/Armature_001/Skeleton3D/Cylindir")
+attack_range = 30.0
+delay_between_attacks = 2
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9065957, 0)

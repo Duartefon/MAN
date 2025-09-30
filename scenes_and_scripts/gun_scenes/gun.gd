@@ -68,19 +68,21 @@ func _on_fire_rate_timeout():
 
 func _on_shoot() -> void:
 	if shoot_type == GunType.PROJECTILE:
-		var bullet_instance:Bullet = BULLET.instantiate()
+		var bullet_instance: Bullet = BULLET.instantiate()
 		bullet_instance.set_damage(bullet_damage)
-		bullet_instance.position = 	current_weapon.get_child(0).get_raycast().global_position
-		bullet_instance.apply_impulse(global_transform.basis.z * BULLET_SPEED)
-		
-		current_weapon.get_child(0).play() 
+		bullet_instance.global_position = current_weapon.get_child(0).get_raycast().global_position
+
+	 
+		bullet_instance.set_velocity(global_transform.basis.z * BULLET_SPEED)
+
+		current_weapon.get_child(0).play()
 		projectile_container.add_child(bullet_instance)
 func enemy_shoot():#esta a faltarme algum detalhe pq o inimigo dispara ao contrario, n consegui resolver bonito ent meti fitacola fds
 	var bullet_instance:Bullet = BULLET.instantiate()
 	bullet_instance.set_damage(bullet_damage)
-	bullet_instance.position = 	current_weapon.get_child(0).get_raycast().global_position
-	bullet_instance.apply_impulse(-global_transform.basis.z * BULLET_SPEED) #
-	bullet_instance.collision_layer = 5
+	bullet_instance.global_position = 	current_weapon.get_child(0).get_raycast().global_position
+	bullet_instance.set_velocity(-global_transform.basis.z * BULLET_SPEED)
+	
 	
 	current_weapon.get_child(0).play() 
 	projectile_container.add_child(bullet_instance)

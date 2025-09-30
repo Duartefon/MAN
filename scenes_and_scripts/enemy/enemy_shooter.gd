@@ -3,6 +3,7 @@ extends Enemy
  
 @onready var gun: Gun = $GunHolder
 @onready var attack_wait_timer: Timer = $AttackWaitTimer
+
 var can_attack:bool = false
  
 	

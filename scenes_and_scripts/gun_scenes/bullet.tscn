@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dwe4k76o1d47f" path="res://scenes_and_scripts/resources/bullet.gd" id="1_vfbmy"]
 [ext_resource type="PackedScene" uid="uid://cu8bbo5sb0rs3" path="res://scenes_and_scripts/particle_effects/bullet_explosion_effect.tscn" id="2_a4ia1"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_a4ia1"]
+radius = 0.3581431
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_840ul"]
 albedo_color = Color(1, 0, 0, 1)
 metallic = 1.0
@@ -24,28 +27,17 @@ material = SubResource("StandardMaterial3D_840ul")
 radius = 0.345
 height = 0.72
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_a4ia1"]
-radius = 0.3581431
-
-[node name="Bullet" type="RigidBody3D"]
-collision_layer = 0
-gravity_scale = 0.0
+[node name="Area3D" type="Area3D"]
 script = ExtResource("1_vfbmy")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-cast_shadow = 0
-mesh = SubResource("SphereMesh_r2dv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_a4ia1")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_r2dv2")
+skeleton = NodePath("")
+
 [node name="LifeTime" type="Timer" parent="."]
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_a4ia1")
-
 [node name="Explosion" parent="." instance=ExtResource("2_a4ia1")]
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
