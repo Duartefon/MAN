@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GunData" load_steps=3 format=3 uid="uid://cqfijtry3a0d"]
+
+[ext_resource type="PackedScene" uid="uid://bsxp7b4urdjra" path="res://scenes_and_scripts/gun_scenes/enemy_gun_model.tscn" id="1_neij7"]
+[ext_resource type="Script" uid="uid://dbgj7lqy3kdh4" path="res://scenes_and_scripts/gun_scenes/gun_data.gd" id="2_lkr1g"]
+
+[resource]
+script = ExtResource("2_lkr1g")
+bullet_damage = 10.0
+magazine_ammo = 5
+total_ammo = 500
+MODEL = ExtResource("1_neij7")
+metadata/_custom_type_script = "uid://dbgj7lqy3kdh4"

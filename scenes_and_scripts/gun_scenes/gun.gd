@@ -3,15 +3,16 @@ class_name Gun
 
 @export var shoot_type:GunType
  
-@onready var camera: Camera3D = $"../../../../../../../Camera3D"
+ 
 @onready var gun_barrel: Node3D = $glock/GunBarrel
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var muzzle_flash: GPUParticles3D = $glock/MuzzleFlash
 @onready var current_weapon: Node = $CurrentWeapon
-@onready var projectile_container: Node3D = $"../../../../../../../ProjectileContainer"
 
+
+@export var me_enemy_gun:bool = false
 @export var gun_data: GunData
 enum GunType {PROJECTILE, HITSCAN}
 
@@ -26,7 +27,7 @@ var fire_rate: float = 0.5
 var reload_duration: float = 0.45
 var can_shoot:bool = true
 var can_reload:bool = true
-
+var projectile_container:Node3D
 signal weapon_reloaded(current_magazine_ammo, total_ammo)
 	
 func _ready() -> void:
@@ -38,9 +39,13 @@ func _ready() -> void:
 	total_ammo = gun_data.total_ammo
 	fire_rate = gun_data.fire_rate
 	reload_duration = gun_data.reload_duration
-	add_child(gun_data.MODEL.instantiate())
- 
+	current_weapon.add_child(gun_data.MODEL.instantiate())
+	projectile_container = get_tree().get_root().get_children()[1].get_node("ProjectileContainer")
 func _process(delta: float) -> void:
+	if me_enemy_gun:
+		return
+		
+		
 	if Input.is_action_just_pressed("fire_gun") and current_magazine_ammo > 0 and can_shoot and can_reload:
 		_on_shoot()
 		
@@ -57,7 +62,7 @@ func _process(delta: float) -> void:
 		audio_stream_player_3d.stream = gun_data.RELOAD_SOUND
 		audio_stream_player_3d.play()
 		can_reload = false
-		
+
 func _on_fire_rate_timeout():
 	can_shoot = true
 
@@ -70,7 +75,9 @@ func _on_shoot() -> void:
 		
 		current_weapon.get_child(0).play() 
 		projectile_container.add_child(bullet_instance)
-		
+
+ 
+	
 func _on_reload() -> void:
 	var ammo_to_reload = magazine_ammo - current_magazine_ammo 
 	if total_ammo - ammo_to_reload >= 0 and can_reload:

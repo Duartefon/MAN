@@ -1,11 +1,15 @@
 extends CharacterBody3D
-
+class_name Enemy
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree = $PlantModel/AnimationTree
+<<<<<<< Updated upstream
 @onready var body = $PlantModel/Armature/Skeleton3D/Cube
 @onready var legs = $PlantModel/Armature/Skeleton3D/Cylinder
+=======
+@export var attack_range: float = 10.0
+
+>>>>>>> Stashed changes
 const SPEED: float = 3
-const ATTACK_RANGE: float = 10.0
 const DAMAGE: float = 25
 const ATTACK_ANIMATION_OFFSET: float = 0.35#when the enemy actually attacks
 var distance_to_stop_following: float = 9
@@ -64,7 +68,7 @@ func handle_movement(delta: float):
 	
 	var distance = global_position.distance_to(player.global_position)
 	
-	if distance > ATTACK_RANGE:
+	if distance > attack_range:
 		curr_anim = WALK
 		move_towards_player(delta)
 	else:
@@ -85,6 +89,7 @@ func move_towards_player(delta: float):
 	look_at(player.global_position, Vector3.UP)
 
 func start_attack():
+	print("STARTING ATTACK")
 	attack_in_progress = true
 	curr_anim = ATTACK
 	anim_tree["parameters/AttackOneShot/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
@@ -119,7 +124,7 @@ func hit_player():
 		player.hit(DAMAGE, dir)
 
 func target_in_attack_range() -> bool:
-	return player and global_position.distance_to(player.global_position) < ATTACK_RANGE
+	return player and global_position.distance_to(player.global_position) < attack_range
 
 #TODO: fazer o damage indicator mais funcional e n depender do inimigo estar vivo
 func apply_damage(damage):
