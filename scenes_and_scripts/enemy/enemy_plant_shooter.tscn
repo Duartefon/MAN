@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnahr5e7dopa7"]
+[gd_scene load_steps=17 format=3 uid="uid://dnahr5e7dopa7"]
 
 [ext_resource type="PackedScene" uid="uid://dag3vpw5g0mp" path="res://scenes_and_scripts/enemy.tscn" id="1_nxu4r"]
 [ext_resource type="PackedScene" uid="uid://borhtu7j7jukd" path="res://scenes_and_scripts/enemy/plant_shooter_model.tscn" id="2_5f6ol"]
 [ext_resource type="Script" uid="uid://cb2wt41omy6gb" path="res://scenes_and_scripts/enemy/enemy_shooter.gd" id="2_sx6r6"]
 [ext_resource type="PackedScene" uid="uid://ckv17j7mpqiqd" path="res://scenes_and_scripts/gun_scenes/gun_holder.tscn" id="4_nn4i6"]
 [ext_resource type="Resource" uid="uid://cqfijtry3a0d" path="res://scenes_and_scripts/gun_scenes/enemy_gun_data.tres" id="5_nn4i6"]
+[ext_resource type="AudioStream" uid="uid://dvjrw0bowseye" path="res://assets/SFX/plant_shoot_sound.wav" id="6_yspbv"]
 
 [sub_resource type="Animation" id="Animation_fyt40"]
 resource_name = "sHOOT"
@@ -94,6 +95,21 @@ tracks/10/keys = {
 "method": &"hit_player"
 }]
 }
+tracks/11/type = "audio"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../AudioStreamPlayer3D")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_yspbv")
+}],
+"times": PackedFloat32Array(0.6333333)
+}
+tracks/11/use_blend = true
 
 [sub_resource type="Animation" id="Animation_tiqmt"]
 resource_name = "Idle"
@@ -312,5 +328,7 @@ parameters/AttackOneShot/request = 0
 [node name="Camera3D" type="Camera3D" parent="." index="5"]
 
 [node name="AttackWaitTimer" type="Timer" parent="." index="6"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="8"]
 
 [editable path="PlantModel"]

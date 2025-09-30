@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1q8jqjjse0ao"]
+[gd_scene load_steps=14 format=3 uid="uid://b1q8jqjjse0ao"]
 
 [ext_resource type="PackedScene" uid="uid://dag3vpw5g0mp" path="res://scenes_and_scripts/enemy.tscn" id="1_vfftn"]
 [ext_resource type="PackedScene" uid="uid://b2slp5aj2ews2" path="res://scenes_and_scripts/enemy/plant_model.tscn" id="2_f563t"]
+[ext_resource type="AudioStream" uid="uid://dg80ksxtu2v50" path="res://assets/SFX/plant_bite.wav" id="3_tbtfp"]
 
 [sub_resource type="Animation" id="Animation_0sqje"]
 resource_name = "Attack"
@@ -118,6 +119,21 @@ tracks/14/keys = {
 "method": &"hit_player"
 }]
 }
+tracks/15/type = "audio"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../AudioStreamPlayer3D")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_tbtfp")
+}],
+"times": PackedFloat32Array(1.2333333)
+}
+tracks/15/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ey0q5"]
 resource_name = "Idle"
@@ -373,16 +389,6 @@ debug_enabled = false
 [node name="PlantModel" parent="." index="2" instance=ExtResource("2_f563t")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="PlantModel/Armature" index="0"]
-bones/0/position = Vector3(3.1933298e-09, 0.66064084, 1.8773543e-09)
-bones/4/rotation = Quaternion(0.14029388, -0.1974801, -0.7300389, 0.6390325)
-bones/8/rotation = Quaternion(-0.51456034, -0.46618432, -0.38104704, 0.610494)
-bones/11/rotation = Quaternion(0.26139534, 0.70795345, 0.5861585, -0.29477543)
-bones/14/rotation = Quaternion(-0.008072557, 0.775654, 0.62993526, 0.03843473)
-bones/17/rotation = Quaternion(-0.37178048, 0.62277305, 0.5412481, 0.42542163)
-bones/20/rotation = Quaternion(-0.6497686, -0.06514963, -0.058146928, 0.7550996)
-bones/23/rotation = Quaternion(-0.61982405, 0.15133932, 0.13303053, 0.75843084)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlantModel" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_7ugrw")
@@ -395,5 +401,8 @@ parameters/IdleRunBlend/blend_amount = 1.0
 parameters/AttackOneShot/active = false
 parameters/AttackOneShot/internal_active = false
 parameters/AttackOneShot/request = 0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource("3_tbtfp")
 
 [editable path="PlantModel"]

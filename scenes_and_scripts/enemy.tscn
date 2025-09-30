@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dag3vpw5g0mp"]
+[gd_scene load_steps=5 format=3 uid="uid://dag3vpw5g0mp"]
 
 [ext_resource type="Script" uid="uid://b4c4a8xahqke" path="res://scenes_and_scripts/enemy.gd" id="1_r7706"]
 [ext_resource type="PackedScene" uid="uid://7hbiv8w54je4" path="res://scenes_and_scripts/damage_indicator.tscn" id="2_r7706"]
+[ext_resource type="AudioStream" uid="uid://dh7tngt3gosu3" path="res://assets/SFX/plant_hit.wav" id="3_e5mcl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r7706"]
 radius = 0.43644512
@@ -20,3 +21,6 @@ debug_enabled = true
 
 [node name="DamageIndicator" parent="." instance=ExtResource("2_r7706")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 2.46453, 0)
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_e5mcl")
