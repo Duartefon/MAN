@@ -89,6 +89,7 @@ func _process(delta: float) -> void:
 	if hp <= 0:
 		visible = false
 		print("morri")
+		get_node("../GameOverRestart").show()
 		
 func hit(damage:float, dir:Vector3):
 	print("HP", hp)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://deoh6uf5u8e2f"]
+
+[ext_resource type="Script" uid="uid://dxje2vsmcu6dc" path="res://scenes_and_scripts/game_over_restart.gd" id="1_v1csb"]
+
+[node name="GameOverRestart" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_v1csb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.26666668)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.5
+offset_right = 158.5
+offset_bottom = 55.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = " Nature has won"
+
+[node name="BoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.54285
+offset_top = -74.5
+offset_right = 174.54285
+offset_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResetButton" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Restart the level"
+
+[node name="QuitButton" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+text = "Quit the game"
+
+[connection signal="pressed" from="BoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="BoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
