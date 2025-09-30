@@ -7,7 +7,9 @@
 
 [resource]
 script = ExtResource("4_wm04j")
-bullet_damage = 5.0
+bullet_damage = 25.0
+total_ammo = 10000
+fire_rate = 0.3
 reload_duration = 1.77
 MODEL = ExtResource("1_j502j")
 SHOOT_SOUND = ExtResource("3_j502j")

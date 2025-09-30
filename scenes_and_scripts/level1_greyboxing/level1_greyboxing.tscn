@@ -196,3 +196,5 @@ data = {
 
 [node name="wall-a-column-painted2" parent="." instance=ExtResource("6_m75w3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5646381, 0.8918009, -19.46799)
+
+[node name="ProjectileContainer" type="Node3D" parent="."]
