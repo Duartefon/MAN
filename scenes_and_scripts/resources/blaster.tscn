@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://s3lted7vpfri"]
+
+[ext_resource type="PackedScene" uid="uid://dm1k4tigsjela" path="res://assets/models/blaster.blend" id="1_n80cm"]
+[ext_resource type="Script" uid="uid://d2dxdr64iki7u" path="res://scenes_and_scripts/particle_effects/play_effect.gd" id="2_cob0w"]
+[ext_resource type="PackedScene" uid="uid://cosqbdkjsijv7" path="res://scenes_and_scripts/particle_effects/MuzzleFlash.tscn" id="3_c1ihu"]
+
+[node name="blaster" node_paths=PackedStringArray("particle_systems") instance=ExtResource("1_n80cm")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+script = ExtResource("2_cob0w")
+particle_systems = [NodePath("MuzzleFlash")]
+
+[node name="MuzzleFlash" parent="." index="6" instance=ExtResource("3_c1ihu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4437561, 3.5899658)
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014567981, 1.3981934, 7.9092956)
+target_position = Vector3(0, 0, -5)

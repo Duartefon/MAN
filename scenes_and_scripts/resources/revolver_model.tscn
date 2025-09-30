@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ekvhxovsp3q"]
+
+[ext_resource type="PackedScene" uid="uid://c7ntrmc62kgmk" path="res://assets/guns/revolvercanogrande2.gltf" id="1_4ln4g"]
+[ext_resource type="Script" uid="uid://d2dxdr64iki7u" path="res://scenes_and_scripts/particle_effects/play_effect.gd" id="2_4tguy"]
+[ext_resource type="PackedScene" uid="uid://cosqbdkjsijv7" path="res://scenes_and_scripts/particle_effects/MuzzleFlash.tscn" id="2_7mojy"]
+
+[node name="RevolverModel" instance=ExtResource("1_4ln4g")]
+script = ExtResource("2_4tguy")
+
+[node name="Node" parent="." index="0"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -6.2569275, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014873505, 1.8773227, 17.582489)
+target_position = Vector3(0, 0, 5)
+
+[node name="MuzzleFlash" parent="." index="2" instance=ExtResource("2_7mojy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23585892, 1.7043729, 17.616955)
