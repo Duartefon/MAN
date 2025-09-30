@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d2dxdr64iki7u" path="res://scenes_and_scripts/particle_effects/play_effect.gd" id="2_smj72"]
 
 [node name="blaster" node_paths=PackedStringArray("particle_systems") instance=ExtResource("1_167rn")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.0139066875, -0.7217361, 0)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("2_smj72")
 particle_systems = [NodePath("MuzzleFlash")]
 
@@ -13,5 +13,5 @@ particle_systems = [NodePath("MuzzleFlash")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4437561, 3.5899658)
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01456798, 1.9064941, 6.9093156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014567981, 1.3981934, 7.9092956)
 target_position = Vector3(0, 0, -5)

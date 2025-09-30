@@ -6,5 +6,4 @@
 script = ExtResource("1_kpuy0")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6008273, -1.4475211)
 target_position = Vector3(0, 0, -5)

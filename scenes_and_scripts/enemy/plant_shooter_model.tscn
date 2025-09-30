@@ -210,6 +210,7 @@ bind/25/bone = -1
 bind/25/pose = Transform3D(0.7310554, 4.470349e-08, 0.6823183, 0.2731747, -0.91635674, -0.29268712, 0.62524706, 0.4003626, -0.6699074, -0.014359698, 0.10565161, -1.0260454)
 
 [node name="PlantModelShooter" type="Node3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Armature_001" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65815616, 0)

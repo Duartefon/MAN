@@ -5,7 +5,7 @@ extends Enemy
 
 func hit_player():
 	print(	"shooting at the player")
-	gun._on_shoot( )
+	gun.enemy_shoot( )
 
  
 func process():
