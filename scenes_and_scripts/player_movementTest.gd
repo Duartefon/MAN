@@ -94,6 +94,7 @@ func _process(delta: float) -> void:
 func hit(damage:float, dir:Vector3):
 	print("HP", hp)
 	hp -= damage
+	hit_sound.pitch_scale = randf_range(0.8,1.2)
 	hit_sound.play()
 	var blood_instance:Node3D = blood_ps.instantiate()
 	

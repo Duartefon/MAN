@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire_gun") and current_magazine_ammo > 0 and can_shoot and can_reload:
 		_on_shoot()
 		
+		audio_stream_player_3d.pitch_scale = randf_range(0.8,1.2)
 		audio_stream_player_3d.stream = gun_data.SHOOT_SOUND
 		audio_stream_player_3d.play()
 		current_magazine_ammo -= 1
@@ -56,8 +57,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reload_gun") and can_reload:
 		
 		_on_reload()
-		audio_stream_player_3d.stream = gun_data.RELOAD_SOUND
-		audio_stream_player_3d.play()
+		#audio_stream_player_3d.stream = gun_data.RELOAD_SOUND
+		#audio_stream_player_3d.play()
 		can_reload = false
 
 func _on_fire_rate_timeout():
@@ -82,7 +83,7 @@ func enemy_shoot():#esta a faltarme algum detalhe pq o inimigo dispara ao contra
 	
 	current_weapon.get_child(0).play() 
 	projectile_container.add_child(bullet_instance)
- 
+ 	
 	
 func _on_reload() -> void:
 	var ammo_to_reload = magazine_ammo - current_magazine_ammo 
@@ -92,7 +93,7 @@ func _on_reload() -> void:
 		can_reload = false
 		reload_timer.start(reload_duration)
 		SignalBus.update_reload.emit(reload_duration)
-		
+		$reloadAudio.play()
 		
 func _on_reload_timeout() -> void:
 	can_reload = true	

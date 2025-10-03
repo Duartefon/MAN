@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckv17j7mpqiqd"]
+[gd_scene load_steps=3 format=3 uid="uid://ckv17j7mpqiqd"]
 
 [ext_resource type="Script" uid="uid://06cw7c7jcqmo" path="res://scenes_and_scripts/gun_scenes/gun.gd" id="1_b0at6"]
+[ext_resource type="AudioStream" uid="uid://d2b1l2vwu6g6d" path="res://assets/SFX/blaster_reload.wav" id="2_bui71"]
 
 [node name="GunHolder" type="Node3D"]
 script = ExtResource("1_b0at6")
@@ -14,3 +15,8 @@ script = ExtResource("1_b0at6")
 [node name="Inventory" type="Node3D" parent="."]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 5.463
+
+[node name="reloadAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_bui71")
+volume_db = 20.0

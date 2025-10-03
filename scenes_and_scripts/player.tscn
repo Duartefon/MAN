@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bc2nuuf4sbc07" path="res://scenes_and_scripts/player_movementTest.gd" id="1_e8vqu"]
 [ext_resource type="PackedScene" uid="uid://dqxboitl7bqhf" path="res://scenes_and_scripts/man.tscn" id="2_e8vqu"]
 [ext_resource type="PackedScene" uid="uid://dyd27ms5jujck" path="res://scenes_and_scripts/particle_effects/blood.tscn" id="2_f8gj8"]
-[ext_resource type="Resource" uid="uid://cjdahix0lr7ui" path="res://scenes_and_scripts/gun_scenes/blaster.tres" id="4_awlyc"]
+[ext_resource type="Resource" uid="uid://csg0yy17fpptq" path="res://scenes_and_scripts/resources/revolver_data.tres" id="4_awlyc"]
 [ext_resource type="PackedScene" uid="uid://7hbiv8w54je4" path="res://scenes_and_scripts/damage_indicator.tscn" id="5_23chc"]
 [ext_resource type="AudioStream" uid="uid://bv65k4s7bu27b" path="res://assets/SFX/man_damage_sound.wav" id="5_awlyc"]
 

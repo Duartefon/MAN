@@ -1,9 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://deoh6uf5u8e2f"]
 
-[ext_resource type="Script" uid="uid://dxje2vsmcu6dc" path="res://scenes_and_scripts/game_over_restart.gd" id="1_v1csb"]
+[ext_resource type="Script" path="res://scenes_and_scripts/game_over_restart.gd" id="1_v1csb"]
 
 [node name="GameOverRestart" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_v1csb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
